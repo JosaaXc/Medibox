@@ -15,7 +15,7 @@
             android:name=".agregarPerfil"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".selecicionarPerfil"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
