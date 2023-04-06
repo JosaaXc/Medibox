@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="490dp"
-        android:layout_height="275dp"
+        android:layout_width="490sp"
+        android:layout_height="275sp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +36,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
         android:layout_marginTop="280dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,8 +58,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,8 +80,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/app_name"
         android:onClick="agrPerfil"
