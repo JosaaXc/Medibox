@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/logotop"
-        android:layout_width="490dp"
-        android:layout_height="275dp"
+        android:layout_width="490sp"
+        android:layout_height="275sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +19,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="143dp"
-        android:layout_height="148dp"
-        android:layout_marginStart="132dp"
+        android:layout_width="143sp"
+        android:layout_height="148sp"
+        android:layout_marginStart="156sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logotop"
         app:srcCompat="@drawable/agregar_foto" />
@@ -40,20 +40,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="375dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="381dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="56sp"
         app:cardBackgroundColor="@color/gris"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/azulprincipal"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:background="@color/azulprincipal" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            app:srcCompat="@drawable/icon_cara" />
+
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rellenar_info"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:paddingLeft="45sp"
+            android:textColorHint="@color/grisdeletras" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
