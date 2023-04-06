@@ -2,8 +2,52 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/agregarPerfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".agregarPerfil">
+
+    <ImageView
+        android:id="@+id/logotop"
+        android:layout_width="490dp"
+        android:layout_height="275dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imgborde1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="143dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="164dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logotop"
+        app:srcCompat="@drawable/agregar_foto" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="143dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/nexa_heavy"
+        android:text="Agregar Perfil"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="375dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="96dp"
+        app:cardBackgroundColor="@color/gris"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
