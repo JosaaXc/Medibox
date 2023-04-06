@@ -40,13 +40,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="381dp"
-        android:layout_height="49dp"
+        android:id="@+id/cardView"
+        android:layout_width="340dp"
+        android:layout_height="48dp"
         android:layout_marginStart="40sp"
         android:layout_marginTop="56sp"
+        android:layout_marginEnd="40dp"
         app:cardBackgroundColor="@color/gris"
         app:cardCornerRadius="10sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
@@ -60,6 +64,7 @@
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="left"
             android:paddingLeft="15dp"
             app:srcCompat="@drawable/icon_cara" />
 
@@ -67,13 +72,128 @@
             android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="right"
             android:background="@drawable/rellenar_info"
             android:ems="10"
             android:fontFamily="@font/inter"
             android:hint="Nombre"
             android:inputType="textPersonName"
-            android:paddingLeft="45sp"
+            android:paddingLeft="50sp"
             android:textColorHint="@color/grisdeletras" />
+    </androidx.cardview.widget.CardView>
+    <!-- Apellido Paterno -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/apellidop"
+        android:layout_width="340dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="40dp"
+        app:cardBackgroundColor="@color/gris"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom"
+            android:background="@color/azulprincipal"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="615dp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:paddingLeft="15dp"
+            app:srcCompat="@drawable/icon_cara"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="541dp" />
+
+        <EditText
+            android:id="@+id/apellidoP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@drawable/rellenar_info"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="Apellido Paterno"
+            android:inputType="textPersonName"
+            android:paddingLeft="50sp"
+            android:textColorHint="@color/grisdeletras" />
+
+    </androidx.cardview.widget.CardView>
+    <!-- Apellido Materno -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/apellidoMaterno"
+        android:layout_width="340dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="40dp"
+        app:cardBackgroundColor="@color/gris"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellidop">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom"
+            android:background="@color/azulprincipal"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="687dp" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:paddingLeft="15dp"
+            app:srcCompat="@drawable/icon_cara"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="642dp" />
+
+        <EditText
+            android:id="@+id/apellidom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@drawable/rellenar_info"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="Apellido Materno"
+            android:inputType="textPersonName"
+            android:paddingLeft="50sp"
+            android:textColorHint="@color/grisdeletras" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="88dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellidoMaterno">
+
+        <Spinner
+            android:id="@+id/spinnerDia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Dia"
+
+            />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
