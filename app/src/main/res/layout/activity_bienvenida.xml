@@ -10,8 +10,8 @@
         android:id="@+id/textView6"
         android:layout_width="262sp"
         android:layout_height="37dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Nombre y Apellido"
         android:textColor="#000000"
@@ -19,12 +19,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bienvenido" />
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loginperfil" />
+
     <TextView
         android:id="@+id/bienvenido"
         android:layout_width="158dp"
         android:layout_height="34dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Bienvenido,"
         android:textColor="#000000"
@@ -32,20 +42,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="52dp"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loginperfil" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="50dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
@@ -75,8 +75,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="170dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,12 +107,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="290dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
+
         <ImageView
             android:id="@+id/oxigenacion"
             android:layout_width="match_parent"
@@ -137,12 +138,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="364dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="410dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
+
         <ImageView
             android:id="@+id/temperatura"
             android:layout_width="match_parent"
@@ -167,12 +169,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="468dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="530dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
+
         <ImageView
             android:id="@+id/imc"
             android:layout_width="match_parent"
@@ -198,12 +201,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="650dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
+
         <ImageView
             android:id="@+id/vermisdatos"
             android:layout_width="match_parent"
