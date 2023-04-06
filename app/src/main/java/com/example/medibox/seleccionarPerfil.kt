@@ -18,5 +18,13 @@ class seleccionarPerfil : AppCompatActivity() {
         //Terminamos esta interfaz
         finish()
     }
+    fun bienvenida(view: View){
+        //Creamos el objeto para pasar de clase
+        val intent = Intent (this, bienvenida::class.java)
+        //le indicamos que inicie la siguiente pantalla
+        startActivity(intent)
+        //Terminamos esta interfaz
+        finish()
+    }
 
 }

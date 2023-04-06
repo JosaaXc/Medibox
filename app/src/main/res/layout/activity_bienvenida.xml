@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".bienvenida">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="262sp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/nexa_heavy"
+        android:text="Nombre y Apellido"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenido" />
+
+    <TextView
+        android:id="@+id/bienvenido"
+        android:layout_width="158dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/nexa_heavy"
+        android:text="Bienvenido,"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loginperfil" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="8sp"
+        app:cardElevation="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ritmoc" />
+
+        <TextView
+            android:id="@+id/textoderitmoc"
+            android:layout_width="109dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15sp"
+            android:fontFamily="@font/nexa_heavy"
+            android:text="Ritmo Cardiaco"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+    <!--GLucosa -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="160dp"
+        app:cardCornerRadius="8sp"
+        app:cardElevation="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <ImageView
+            android:id="@+id/glucosa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/glucosa" />
+
+        <TextView
+            android:id="@+id/textodeglucosa"
+            android:layout_width="96dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15sp"
+            android:fontFamily="@font/nexa_heavy"
+            android:text="Glucosa"
+            android:textColor="#E8E1E1"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="277dp"
+            tools:layout_editor_absoluteY="285dp" />
+    </androidx.cardview.widget.CardView>
+    <!-- Oxigenación -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="264dp"
+        app:cardCornerRadius="8sp"
+        app:cardElevation="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        <ImageView
+            android:id="@+id/oxigenacion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/oxigenacion" />
+
+        <TextView
+            android:id="@+id/textodeoxigenacion"
+            android:layout_width="138dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:fontFamily="@font/nexa_heavy"
+            android:text="Oxigenacion"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="388dp" />
+    </androidx.cardview.widget.CardView>
+    <!-- Temperatura -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="364dp"
+        app:cardCornerRadius="8sp"
+        app:cardElevation="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        <ImageView
+            android:id="@+id/temperatura"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/temperatura" />
+
+        <TextView
+            android:id="@+id/textodetemperatura"
+            android:layout_width="146dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:fontFamily="@font/nexa_heavy"
+            android:text="Temperatura"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="236dp"
+            tools:layout_editor_absoluteY="474dp" />
+    </androidx.cardview.widget.CardView>
+    <!-- IMC -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="468dp"
+        app:cardCornerRadius="8sp"
+        app:cardElevation="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        <ImageView
+            android:id="@+id/imc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/imc" />
+
+        <TextView
+            android:id="@+id/textodeimc"
+            android:layout_width="53dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15sp"
+            android:fontFamily="@font/nexa_heavy"
+            android:text="IMC"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="576dp" />
+    </androidx.cardview.widget.CardView>
+    <!-- Ver mis datos -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="580dp"
+        app:cardCornerRadius="8sp"
+        app:cardElevation="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        <ImageView
+            android:id="@+id/vermisdatos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/datos" />
+
+        <TextView
+            android:id="@+id/textodevermisdatos"
+            android:layout_width="105dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15sp"
+            android:fontFamily="@font/nexa_heavy"
+            android:text="Ver mis datos"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="322dp"
+            tools:layout_editor_absoluteY="703dp" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
