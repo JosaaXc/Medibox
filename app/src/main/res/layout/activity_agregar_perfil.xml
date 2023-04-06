@@ -21,7 +21,7 @@
         android:id="@+id/imageView2"
         android:layout_width="143dp"
         android:layout_height="148dp"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="132dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logotop"
         app:srcCompat="@drawable/agregar_foto" />
@@ -42,8 +42,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="375dp"
         android:layout_height="33dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="56dp"
         app:cardBackgroundColor="@color/gris"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
