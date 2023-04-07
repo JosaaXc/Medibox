@@ -207,12 +207,14 @@
             android:src="@drawable/icono_fecha" />
 
         <EditText
+            android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/rellenar_info"
             android:fontFamily="@font/inter"
             android:hint="Fecha"
             android:paddingLeft="50sp"
+            android:inputType="date"
             android:textColorHint="@color/grisdeletras" />
 
 
