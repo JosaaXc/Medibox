@@ -41,7 +41,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="360sp"
+        android:layout_width="match_parent"
         android:layout_height="68sp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="56sp"
@@ -90,7 +90,7 @@
     <!-- Apellido Paterno -->
     <androidx.cardview.widget.CardView
         android:id="@+id/apellidop"
-        android:layout_width="360sp"
+        android:layout_width="match_parent"
         android:layout_height="68sp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
@@ -137,7 +137,7 @@
     <!-- Apellido Materno -->
     <androidx.cardview.widget.CardView
         android:id="@+id/apellidoMaterno"
-        android:layout_width="360sp"
+        android:layout_width="match_parent"
         android:layout_height="68sp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
@@ -184,7 +184,7 @@
     <!-- Fecha -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="360sp"
+        android:layout_width="match_parent"
         android:layout_height="68sp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
