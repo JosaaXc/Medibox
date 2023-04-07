@@ -8,14 +8,16 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="262sp"
+        android:layout_width="match_parent"
         android:layout_height="37sp"
         android:layout_marginStart="36sp"
         android:layout_marginTop="12sp"
+        android:layout_marginEnd="100dp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Nombre y Apellido"
         android:textColor="#000000"
         android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bienvenido" />
 
@@ -23,32 +25,39 @@
         android:id="@+id/imageView6"
         android:layout_width="56sp"
         android:layout_height="55sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="52sp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/loginperfil"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/loginperfil" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bienvenido"
-        android:layout_width="158sp"
+        android:layout_width="match_parent"
         android:layout_height="34sp"
         android:layout_marginStart="36sp"
         android:layout_marginTop="24sp"
+        android:layout_marginEnd="155dp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Bienvenido,"
         android:textColor="#000000"
         android:textSize="28sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340sp"
+        android:layout_width="match_parent"
         android:layout_height="90sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50sp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -56,8 +65,8 @@
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/ritmoc" />
+            android:background="@drawable/ritmoc"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textoderitmoc"
@@ -73,12 +82,14 @@
     <!--GLucosa -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340sp"
+        android:layout_width="match_parent"
         android:layout_height="90sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="170sp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -86,8 +97,8 @@
             android:id="@+id/glucosa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/glucosa" />
+            android:background="@drawable/glucosa"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodeglucosa"
@@ -105,12 +116,14 @@
     <!-- Oxigenación -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340sp"
+        android:layout_width="match_parent"
         android:layout_height="90sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="290sp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -118,8 +131,8 @@
             android:id="@+id/oxigenacion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/oxigenacion" />
+            android:background="@drawable/oxigenacion"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodeoxigenacion"
@@ -137,12 +150,14 @@
     <!-- Temperatura -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340sp"
+        android:layout_width="match_parent"
         android:layout_height="90sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="410sp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -150,8 +165,8 @@
             android:id="@+id/temperatura"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/temperatura" />
+            android:background="@drawable/temperatura"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodetemperatura"
@@ -169,12 +184,14 @@
     <!-- IMC -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340sp"
+        android:layout_width="match_parent"
         android:layout_height="90sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="530sp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -182,8 +199,8 @@
             android:id="@+id/imc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/imc" />
+            android:background="@drawable/imc"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodeimc"
@@ -201,12 +218,14 @@
     <!-- Ver mis datos -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340sp"
+        android:layout_width="match_parent"
         android:layout_height="90sp"
-        android:layout_marginStart="40sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="650sp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -214,8 +233,8 @@
             android:id="@+id/vermisdatos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/datos" />
+            android:background="@drawable/datos"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodevermisdatos"
