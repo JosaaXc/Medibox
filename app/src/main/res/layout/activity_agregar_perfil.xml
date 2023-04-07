@@ -227,4 +227,35 @@
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/button"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/boton_redondo"
+        android:text="Aceptar"
+        android:textAllCaps="false"
+        android:shadowRadius="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <TextView
+        android:id="@+id/button2"
+        style="@style/botonCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/boton_radiocancelar"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/azulprincipal"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
