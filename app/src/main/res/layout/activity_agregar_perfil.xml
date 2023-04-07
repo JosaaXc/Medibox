@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16sp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/agregarPerfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,7 +23,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="230sp"
         android:background="@drawable/imgborde1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,9 +47,9 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="68sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="70sp"
+        android:layout_marginEnd="30sp"
         app:cardBackgroundColor="@color/gris"
         app:cardCornerRadius="10sp"
         app:cardElevation="8sp"
@@ -55,7 +59,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="3sp"
             android:layout_gravity="bottom"
             android:background="@color/azulprincipal" />
 
@@ -64,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:paddingLeft="15dp"
+            android:paddingLeft="15sp"
             app:srcCompat="@drawable/icon_cara" />
 
         <EditText
@@ -83,7 +87,7 @@
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="3sp"
             android:layout_gravity="bottom"
             android:background="@color/azulprincipal" />
     </androidx.cardview.widget.CardView>
@@ -92,9 +96,9 @@
         android:id="@+id/apellidop"
         android:layout_width="match_parent"
         android:layout_height="68sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="40sp"
+        android:layout_marginEnd="30sp"
         app:cardBackgroundColor="@color/gris"
         app:cardCornerRadius="10sp"
         app:cardElevation="8sp"
@@ -104,21 +108,21 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="3sp"
             android:layout_gravity="bottom"
             android:background="@color/azulprincipal"
-            tools:layout_editor_absoluteX="40dp"
-            tools:layout_editor_absoluteY="615dp" />
+            tools:layout_editor_absoluteX="40sp"
+            tools:layout_editor_absoluteY="615dsp" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:paddingLeft="15dp"
+            android:paddingLeft="15sp"
             app:srcCompat="@drawable/icon_cara"
-            tools:layout_editor_absoluteX="40dp"
-            tools:layout_editor_absoluteY="541dp" />
+            tools:layout_editor_absoluteX="40sp"
+            tools:layout_editor_absoluteY="541sp" />
 
         <EditText
             android:id="@+id/apellidoP"
@@ -139,9 +143,9 @@
         android:id="@+id/apellidoMaterno"
         android:layout_width="match_parent"
         android:layout_height="68sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="40sp"
+        android:layout_marginEnd="30sp"
         app:cardBackgroundColor="@color/gris"
         app:cardCornerRadius="10sp"
         app:cardElevation="8sp"
@@ -151,21 +155,21 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="3sp"
             android:layout_gravity="bottom"
             android:background="@color/azulprincipal"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="687dp" />
+            tools:layout_editor_absoluteX="43sp"
+            tools:layout_editor_absoluteY="687sp" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:paddingLeft="15dp"
+            android:paddingLeft="15sp"
             app:srcCompat="@drawable/icon_cara"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="642dp" />
+            tools:layout_editor_absoluteX="43sp"
+            tools:layout_editor_absoluteY="642sp" />
 
         <EditText
             android:id="@+id/apellidom"
@@ -186,9 +190,9 @@
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="68sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="40sp"
+        android:layout_marginEnd="30sp"
         app:cardCornerRadius="10sp"
         app:cardElevation="10sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,7 +201,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="3sp"
             android:layout_gravity="bottom"
             android:background="@color/azulprincipal"
             tools:layout_editor_absoluteX="43dp"
@@ -208,10 +212,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:paddingLeft="15dp"
+            android:paddingLeft="15sp"
             app:srcCompat="@drawable/icono_fecha"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="642dp" />
+            tools:layout_editor_absoluteX="43sp"
+            tools:layout_editor_absoluteY="642sp" />
 
         <EditText
             android:id="@+id/editTextDate"
@@ -233,13 +237,16 @@
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="80sp"
+        android:layout_marginTop="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/boton_redondo"
+        android:shadowRadius="3"
         android:text="Aceptar"
         android:textAllCaps="false"
-        android:shadowRadius="3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
     <TextView
@@ -247,9 +254,10 @@
         style="@style/botonCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="80sp"
+        android:layout_marginTop="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/boton_radiocancelar"
         android:text="Cancelar"
         android:textAllCaps="false"
@@ -260,3 +268,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
