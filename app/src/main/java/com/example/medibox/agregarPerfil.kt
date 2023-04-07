@@ -7,6 +7,8 @@ import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.cardview.widget.CardView
+import java.text.SimpleDateFormat
 import java.util.*
 
 class agregarPerfil : AppCompatActivity() {
@@ -24,14 +26,17 @@ class agregarPerfil : AppCompatActivity() {
 
         val datePickerDialog = DatePickerDialog(this,
             { _, year, month, dayOfMonth ->
-                selectedDate = "$year-${month + 1}-$dayOfMonth"
-                editTextDate.setText(selectedDate)
+                val selectedCalendar = Calendar.getInstance()
+                selectedCalendar.set(year, month, dayOfMonth)
+                val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+                val selectedDateFormatted = dateFormat.format(selectedCalendar.time)
+                selectedDate = selectedDateFormatted
+                editTextDate.setText(selectedDateFormatted)
             }, year, month, dayOfMonth)
 
         editTextDate.setOnClickListener {
             datePickerDialog.show()
         }
-
 
     }
 }
