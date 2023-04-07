@@ -16,7 +16,6 @@ class seleccionarPerfil : AppCompatActivity() {
         //le indicamos que inicie la siguiente pantalla
         startActivity(intent)
         //Terminamos esta interfaz
-        finish()
     }
     fun bienvenida(view: View){
         //Creamos el objeto para pasar de clase
@@ -24,7 +23,6 @@ class seleccionarPerfil : AppCompatActivity() {
         //le indicamos que inicie la siguiente pantalla
         startActivity(intent)
         //Terminamos esta interfaz
-        finish()
     }
 
 }
