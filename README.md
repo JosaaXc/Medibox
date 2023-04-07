@@ -1,2 +1,2 @@
 # Medibox
- Ey muy buenas a todos guapisimos
+Ya se pudo gg.
