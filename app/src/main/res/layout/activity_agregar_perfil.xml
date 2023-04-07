@@ -8,41 +8,41 @@
     tools:context=".agregarPerfil">
 
     <ImageView
-        android:id="@+id/logotop"
-        android:layout_width="490sp"
-        android:layout_height="275sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imgborde1" />
-
-    <ImageView
         android:id="@+id/imageView2"
         android:layout_width="143sp"
         android:layout_height="148sp"
-        android:layout_marginStart="164dp"
+        android:layout_marginTop="250sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logotop"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/agregar_foto" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/imgborde1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView"
-        android:layout_width="143dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="143sp"
+        android:layout_height="87sp"
+        android:layout_marginStart="48sp"
+        android:layout_marginTop="28sp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Agregar Perfil"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!-- Nombre -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="340dp"
-        android:layout_height="48dp"
+        android:layout_width="340sp"
+        android:layout_height="48sp"
         android:layout_marginTop="56sp"
         android:layout_marginEnd="40dp"
         app:cardBackgroundColor="@color/gris"
@@ -89,8 +89,8 @@
     <!-- Apellido Paterno -->
     <androidx.cardview.widget.CardView
         android:id="@+id/apellidop"
-        android:layout_width="340dp"
-        android:layout_height="48dp"
+        android:layout_width="340sp"
+        android:layout_height="48sp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="40dp"
         app:cardBackgroundColor="@color/gris"
@@ -133,11 +133,10 @@
 
     </androidx.cardview.widget.CardView>
     <!-- Apellido Materno -->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/apellidoMaterno"
-        android:layout_width="340dp"
-        android:layout_height="48dp"
+        android:layout_width="340sp"
+        android:layout_height="48sp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="40dp"
         app:cardBackgroundColor="@color/gris"
@@ -179,11 +178,11 @@
             android:textColorHint="@color/grisdeletras" />
 
     </androidx.cardview.widget.CardView>
-    <!-- Dia -->
+    <!-- Fecha -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="340dp"
-        android:layout_height="48dp"
+        android:layout_width="340sp"
+        android:layout_height="48sp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="40dp"
         app:cardCornerRadius="10sp"
@@ -218,7 +217,5 @@
 
 
     </androidx.cardview.widget.CardView>
-    <!-- Mes -->
 
-    <!-- Año -->
 </androidx.constraintlayout.widget.ConstraintLayout>
