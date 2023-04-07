@@ -9,9 +9,9 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="262sp"
-        android:layout_height="37dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="37sp"
+        android:layout_marginStart="36sp"
+        android:layout_marginTop="12sp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Nombre y Apellido"
         android:textColor="#000000"
@@ -19,22 +19,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bienvenido" />
 
-    <ImageView
+    <TextView
         android:id="@+id/imageView6"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="56sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="52sp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loginperfil" />
+        android:background="@drawable/loginperfil" />
 
     <TextView
         android:id="@+id/bienvenido"
-        android:layout_width="158dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="158sp"
+        android:layout_height="34sp"
+        android:layout_marginStart="36sp"
+        android:layout_marginTop="24sp"
         android:fontFamily="@font/nexa_heavy"
         android:text="Bienvenido,"
         android:textColor="#000000"
@@ -43,27 +43,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="340sp"
+        android:layout_height="90sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="50sp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
+        <TextView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ritmoc" />
+            android:background="@drawable/ritmoc" />
 
         <TextView
             android:id="@+id/textoderitmoc"
-            android:layout_width="109dp"
-            android:layout_height="58dp"
-            android:layout_gravity="right"
+            android:layout_width="109sp"
+            android:layout_height="58sp"
+            android:layout_gravity="end"
             android:layout_marginTop="15sp"
             android:fontFamily="@font/nexa_heavy"
             android:text="Ritmo Cardiaco"
@@ -73,161 +73,162 @@
     <!--GLucosa -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="170dp"
+        android:layout_width="340sp"
+        android:layout_height="90sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="170sp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
+        <TextView
             android:id="@+id/glucosa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/glucosa" />
+            android:background="@drawable/glucosa" />
 
         <TextView
             android:id="@+id/textodeglucosa"
-            android:layout_width="96dp"
-            android:layout_height="58dp"
-            android:layout_gravity="right"
+            android:layout_width="96sp"
+            android:layout_height="58sp"
+            android:layout_gravity="end"
             android:layout_marginTop="15sp"
             android:fontFamily="@font/nexa_heavy"
             android:text="Glucosa"
             android:textColor="#E8E1E1"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="277dp"
-            tools:layout_editor_absoluteY="285dp" />
+            tools:layout_editor_absoluteX="277sp"
+            tools:layout_editor_absoluteY="285sp" />
     </androidx.cardview.widget.CardView>
     <!-- Oxigenación -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="290dp"
+        android:layout_width="340sp"
+        android:layout_height="90sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="290sp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
+        <TextView
             android:id="@+id/oxigenacion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/oxigenacion" />
+            android:background="@drawable/oxigenacion" />
 
         <TextView
             android:id="@+id/textodeoxigenacion"
-            android:layout_width="138dp"
-            android:layout_height="58dp"
-            android:layout_gravity="right"
+            android:layout_width="138sp"
+            android:layout_height="58sp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10sp"
             android:fontFamily="@font/nexa_heavy"
             android:text="Oxigenacion"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="278dp"
-            tools:layout_editor_absoluteY="388dp" />
+            tools:layout_editor_absoluteX="278sp"
+            tools:layout_editor_absoluteY="388sp" />
     </androidx.cardview.widget.CardView>
     <!-- Temperatura -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="410dp"
+        android:layout_width="340sp"
+        android:layout_height="90sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="410sp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
+        <TextView
             android:id="@+id/temperatura"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/temperatura" />
+            android:background="@drawable/temperatura" />
 
         <TextView
             android:id="@+id/textodetemperatura"
-            android:layout_width="146dp"
-            android:layout_height="58dp"
-            android:layout_gravity="right"
+            android:layout_width="146sp"
+            android:layout_height="58sp"
+            android:layout_gravity="end"
             android:layout_marginTop="10sp"
             android:fontFamily="@font/nexa_heavy"
             android:text="Temperatura"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="236dp"
-            tools:layout_editor_absoluteY="474dp" />
+            tools:layout_editor_absoluteX="236sp"
+            tools:layout_editor_absoluteY="474sp" />
     </androidx.cardview.widget.CardView>
     <!-- IMC -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="530dp"
+        android:layout_width="340sp"
+        android:layout_height="90sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="530sp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
+        <TextView
             android:id="@+id/imc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/imc" />
+            android:background="@drawable/imc" />
 
         <TextView
             android:id="@+id/textodeimc"
-            android:layout_width="53dp"
-            android:layout_height="58dp"
-            android:layout_gravity="right"
+            android:layout_width="53sp"
+            android:layout_height="58sp"
+            android:layout_gravity="end"
             android:layout_marginTop="15sp"
             android:fontFamily="@font/nexa_heavy"
             android:text="IMC"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="576dp" />
+            tools:layout_editor_absoluteX="229sp"
+            tools:layout_editor_absoluteY="576sp" />
     </androidx.cardview.widget.CardView>
     <!-- Ver mis datos -->
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="650dp"
+        android:layout_width="340sp"
+        android:layout_height="90sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="650sp"
         app:cardCornerRadius="8sp"
         app:cardElevation="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
+        <TextView
             android:id="@+id/vermisdatos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/datos" />
+            android:background="@drawable/datos" />
 
         <TextView
             android:id="@+id/textodevermisdatos"
-            android:layout_width="87dp"
-            android:layout_height="58dp"
-            android:layout_gravity="right"
+            android:layout_width="87sp"
+            android:layout_height="58sp"
+            android:layout_gravity="end"
             android:layout_marginTop="15sp"
             android:fontFamily="@font/nexa_heavy"
             android:text="Ver mis datos"
             android:textColor="#0E0E0E"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="322dp"
-            tools:layout_editor_absoluteY="703dp" />
+            tools:layout_editor_absoluteX="322sp"
+            tools:layout_editor_absoluteY="703sp" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
