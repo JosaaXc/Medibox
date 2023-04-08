@@ -1,2 +1,2 @@
 # Medibox
-Medibox, es una aplicacion para signos vitales
+Medibox, es una aplicacion que registra signos vitales
