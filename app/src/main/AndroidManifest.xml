@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Medibox"
         tools:targetApi="31">
         <activity
+            android:name=".registrarUsuario"
+            android:exported="false" />
+        <activity
             android:name=".Cargando"
             android:exported="true">
             <intent-filter>
@@ -19,7 +22,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".bienvenida"
@@ -29,9 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".seleccionarPerfil"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>
