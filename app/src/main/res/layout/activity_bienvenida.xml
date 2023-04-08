@@ -30,13 +30,14 @@
         android:id="@+id/imageView6"
         android:layout_width="56sp"
         android:layout_height="55sp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="30sp"
         android:layout_marginTop="52sp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="30sp"
         android:background="@drawable/loginperfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="iniciarSesion"/>
 
     <TextView
         android:id="@+id/bienvenido"
