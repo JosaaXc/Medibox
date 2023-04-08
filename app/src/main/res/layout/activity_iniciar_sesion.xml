@@ -164,6 +164,7 @@
         android:layout_width="142sp"
         android:layout_height="55sp"
         android:layout_marginTop="40sp"
+        android:onClick="registrarse"
         android:text="¿No tienes cuenta?, registrate aqui."
         android:textAlignment="center"
         android:textColor="#040303"

@@ -11,4 +11,8 @@ class iniciarSesion : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_iniciar_sesion)
     }
+    fun registrarse(view: View) {
+        val intent = Intent(this, registrarUsuario::class.java)
+        startActivity(intent)
+    }
 }
