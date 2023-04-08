@@ -14,4 +14,16 @@ class bienvenida : AppCompatActivity() {
         val intent = Intent(this, verPerfil::class.java)
         startActivity(intent)
     }
+    fun vistaRitmoc(view: View) {
+        val intent = Intent(this, signoRitmoc::class.java)
+        startActivity(intent)
+    }
+    fun vistaGlucosa(view: View) {
+        val intent = Intent(this, signoGlucosa::class.java)
+        startActivity(intent)
+    }
+    fun vistaVerMisdatos(view: View) {
+        val intent = Intent(this, verDatos::class.java)
+        startActivity(intent)
+    }
 }

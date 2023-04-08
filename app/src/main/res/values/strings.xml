@@ -1,30 +1,23 @@
 <resources>
     <string name="app_name">Medibox</string>
-    <string-array name="dias">
-        <item>Dia</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+    <string name="misdatos">Mis Datos</string>
+    <string name="enviardatos">Enviar Datos</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="ritmoc">Ritmo&#10;Cardiaco</string>
+    <string name="glucosa">Glucosa</string>
+
+    <string-array name="rg_ritmoc">
+        <item>Seleccione una opción</item>
+        <item>60ppm o menos</item>
+        <item>60ppm - 100ppm</item>
+        <item>Más de 100ppm</item>
     </string-array>
-    <string-array name="mes">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
+    <string-array name="rg_glucosa">
+        <item>Seleccione una opción</item>
+        <item>Más de: 200 mg/dl</item>
+        <item>160 a 190 mg/dl</item>
+        <item>80 a 120 mg/dl</item>
+        <item>Menos de: 70mg/dl</item>
     </string-array>
 </resources>
