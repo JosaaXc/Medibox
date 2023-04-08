@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Medibox"
         tools:targetApi="31">
         <activity
-            android:name=".registrarUsuario"
+            android:name=".iniciarSesion"
             android:exported="false" />
         <activity
             android:name=".Cargando"
@@ -31,7 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".seleccionarPerfil"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
