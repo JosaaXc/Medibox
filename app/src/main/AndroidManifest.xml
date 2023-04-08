@@ -15,9 +15,6 @@
             android:name=".iniciarSesion"
             android:exported="false" />
         <activity
-            android:name=".registrarUsuario"
-            android:exported="false" />
-        <activity
             android:name=".Cargando"
             android:exported="true">
             <intent-filter>
