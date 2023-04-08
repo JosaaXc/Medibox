@@ -11,7 +11,7 @@ class bienvenida : AppCompatActivity() {
         setContentView(R.layout.activity_bienvenida)
     }
     fun iniciarSesion(view: View) {
-        val intent = Intent(this, iniciarSesion::class.java)
+        val intent = Intent(this, verPerfil::class.java)
         startActivity(intent)
     }
 }
