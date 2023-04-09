@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class Cargando extends AppCompatActivity {
+public class cargando extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class Cargando extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Cargando.this, seleccionarPerfil.class));
+                startActivity(new Intent(cargando.this, seleccionarPerfil.class));
                 finish();
             }
         }, 3000);

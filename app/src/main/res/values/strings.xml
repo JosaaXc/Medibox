@@ -6,6 +6,9 @@
     <string name="cancelar">Cancelar</string>
     <string name="ritmoc">Ritmo&#10;Cardiaco</string>
     <string name="glucosa">Glucosa</string>
+    <string name="oxigenacion">Oxigenación</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="imc">IMC</string>
 
     <string-array name="rg_ritmoc">
         <item>Seleccione una opción</item>
@@ -19,5 +22,20 @@
         <item>160 a 190 mg/dl</item>
         <item>80 a 120 mg/dl</item>
         <item>Menos de: 70mg/dl</item>
+    </string-array>
+    <string-array name="rg_oxigenacion">
+        <item>Seleccione una opción</item>
+        <item>95%</item>
+        <item>96%</item>
+        <item>97%</item>
+        <item>98%</item>
+        <item>99%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="rg_temperatura">
+        <item>Seleccione una opción</item>
+        <item>35ºC o menos</item>
+        <item>36ªC - 38ºC</item>
+        <item>Más de 39ºC</item>
     </string-array>
 </resources>
