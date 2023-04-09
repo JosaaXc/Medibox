@@ -72,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/ritmoc"
+            android:onClick="vistaRitmoc"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -104,7 +105,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/glucosa"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:onClick="vistaGlucosa"/>
 
         <TextView
             android:id="@+id/textodeglucosa"
@@ -240,7 +242,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/datos"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:onClick="vistaVerMisdatos"/>
 
         <TextView
             android:id="@+id/textodevermisdatos"
