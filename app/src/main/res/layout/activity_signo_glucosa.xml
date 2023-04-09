@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16sp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".signoGlucosa">
+        <!-- imagen del degradado -->
+        <TextView
+            android:id="@+id/bg_ritmoc"
+            android:layout_width="wrap_content"
+            android:layout_height="300sp"
+            android:background="@drawable/deg_glucosa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Texto de la imagen -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="@font/nexa_heavy"
+            android:gravity="start"
+            android:text="@string/glucosa"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:shadowColor="@color/black"
+            android:shadowRadius="15"
+            android:shadowDx="5"
+            android:shadowDy="2"/>
+        <!-- icono de la glucosa -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:contentDescription="@string/glucosa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bg_ritmoc"
+            app:srcCompat="@drawable/icon_glucosa" />
+        <!-- Rango de la glucosa -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="68sp"
+            android:layout_marginStart="30sp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30sp"
+            app:cardBackgroundColor="@color/gris"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3sp"
+                android:layout_gravity="bottom"
+                android:background="@color/azulprincipal"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="598dp"
+                tools:ignore="SmallSp" />
+
+            <Spinner
+                android:id="@+id/mi_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scrollbarSize="5sp"
+                android:scrollbarStyle="outsideInset" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="3sp"
+                android:layout_gravity="bottom"
+                android:background="@color/azulprincipal"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="598dp"
+                tools:ignore="SmallSp" />
+        </androidx.cardview.widget.CardView>
+        <!-- Boton Guardar -->
+        <TextView
+            android:id="@+id/guardar"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:layout_marginEnd="40sp"
+            android:background="@drawable/boton_redondo"
+            android:shadowRadius="3"
+            android:text="@string/guardar"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        <!-- Boton Cancelar -->
+        <TextView
+            android:id="@+id/cancelar"
+            style="@style/botonCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40sp"
+            android:layout_marginTop="50sp"
+            android:layout_marginEnd="40sp"
+            android:background="@drawable/boton_radiocancelar"
+            android:onClick="btnCancelar"
+            android:text="@string/cancelar"
+            android:textAllCaps="false"
+            android:textColor="@color/azulprincipal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guardar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
