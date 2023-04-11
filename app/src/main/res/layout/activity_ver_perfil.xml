@@ -271,7 +271,6 @@
 
         <TextView
             android:id="@+id/textView5"
-
             android:layout_width="199dp"
             android:layout_height="40dp"
             android:layout_marginTop="40sp"

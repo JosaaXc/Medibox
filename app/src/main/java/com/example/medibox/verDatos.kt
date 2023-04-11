@@ -10,7 +10,7 @@ class verDatos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_datos)
     }
-    fun vistaEnviarDatos(view: View) {
+    fun enviarDatos(view: View) {
         val intent = Intent(this, enviarDatos::class.java)
         startActivity(intent)
     }
