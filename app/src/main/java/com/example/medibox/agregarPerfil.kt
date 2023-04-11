@@ -1,8 +1,10 @@
 package com.example.medibox
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -37,6 +39,9 @@ class agregarPerfil : AppCompatActivity() {
         editTextDate.setOnClickListener {
             datePickerDialog.show()
         }
-
+    }
+    fun bienvenida(view: View) {
+        val intent = Intent(this, bienvenida::class.java)
+        startActivity(intent)
     }
 }

@@ -54,9 +54,6 @@
             android:name=".agregarPerfil"
             android:exported="false" />
         <activity
-            android:name=".seleccionarPerfil"
-            android:exported="false" />
-        <activity
             android:name=".enviarDatos"
             android:exported="false" />
     </application>

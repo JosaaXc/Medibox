@@ -10,20 +10,28 @@ class bienvenida : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
     }
-    fun iniciarSesion(view: View) {
-        val intent = Intent(this, verPerfil::class.java)
+    fun abrirActividad(clase: Class<*>) {
+        val intent = Intent(this, clase)
         startActivity(intent)
+    }
+    fun iniciarSesion(view: View) {
+        abrirActividad(verPerfil::class.java)
     }
     fun vistaRitmoc(view: View) {
-        val intent = Intent(this, signoRitmoc::class.java)
-        startActivity(intent)
+        abrirActividad(signoRitmoc::class.java)
     }
     fun vistaGlucosa(view: View) {
-        val intent = Intent(this, signoGlucosa::class.java)
-        startActivity(intent)
+        abrirActividad(signoGlucosa::class.java)
+    }
+    fun oxigenacion(view: View) {
+        abrirActividad(signoOxigenacion::class.java)
+    }
+    fun temperatura(view: View) {
+        abrirActividad(signoTemperatura::class.java)
+    }fun imc(view: View) {
+        abrirActividad(signoImc::class.java)
     }
     fun vistaVerMisdatos(view: View) {
-        val intent = Intent(this, verDatos::class.java)
-        startActivity(intent)
+        abrirActividad(verDatos::class.java)
     }
 }

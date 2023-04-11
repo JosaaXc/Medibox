@@ -15,7 +15,7 @@ public class cargando extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(cargando.this, seleccionarPerfil.class));
+                startActivity(new Intent(cargando.this, agregarPerfil.class));
                 finish();
             }
         }, 3000);

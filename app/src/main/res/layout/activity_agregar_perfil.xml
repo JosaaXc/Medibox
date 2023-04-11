@@ -243,6 +243,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/boton_redondo"
         android:shadowRadius="3"
+        android:onClick="bienvenida"
         android:text="Aceptar"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
