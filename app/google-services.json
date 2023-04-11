@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "939332425075",
+    "project_id": "medibox-124cc",
+    "storage_bucket": "medibox-124cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939332425075:android:a8cec1b1ca435500bf6106",
+        "android_client_info": {
+          "package_name": "com.example.medibox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939332425075-cete2gst9pg5k7micdf47h2eqeq0hd4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH2sJ11XgUJ4UwzGi_NlXRcfjyxAQ-A7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939332425075-cete2gst9pg5k7micdf47h2eqeq0hd4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
