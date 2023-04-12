@@ -17,7 +17,6 @@
     </string-array>
     <!-- Rango de glucosa -->
     <string-array name="rg_glucosa">
-        <item>Seleccione una opción</item>
         <item>Más de: 200 mg/dl</item>
         <item>160 a 190 mg/dl</item>
         <item>80 a 120 mg/dl</item>
