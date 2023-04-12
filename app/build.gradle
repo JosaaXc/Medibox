@@ -8,6 +8,8 @@ android {
     namespace 'com.example.medibox'
     compileSdk 33
 
+    buildFeatures{viewBinding true}
+
     defaultConfig {
         applicationId "com.example.medibox"
         minSdk 26

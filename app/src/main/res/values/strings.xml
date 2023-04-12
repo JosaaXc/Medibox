@@ -9,13 +9,13 @@
     <string name="oxigenacion">Oxigenación</string>
     <string name="temperatura">Temperatura</string>
     <string name="imc">IMC</string>
-
+    <!-- Rango de ritmo cardiaco -->
     <string-array name="rg_ritmoc">
-        <item>Seleccione una opción</item>
         <item>60ppm o menos</item>
         <item>60ppm - 100ppm</item>
         <item>Más de 100ppm</item>
     </string-array>
+    <!-- Rango de glucosa -->
     <string-array name="rg_glucosa">
         <item>Seleccione una opción</item>
         <item>Más de: 200 mg/dl</item>
