@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.ktx.Firebase;
+
 public class cargando extends AppCompatActivity {
 
     @Override
@@ -15,8 +18,13 @@ public class cargando extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(cargando.this, agregarPerfil.class));
-                finish();
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                    startActivity(new Intent(cargando.this, bienvenida.class));
+                    finish();
+                }else{
+                    startActivity(new Intent(cargando.this, agregarPerfil.class));
+                    finish();
+                }
             }
         }, 3000);
     }

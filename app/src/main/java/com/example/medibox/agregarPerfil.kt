@@ -26,6 +26,10 @@ class agregarPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_perfil)
 
+        datePicker()
+    }
+
+    fun datePicker(){
         var selectedDate: String? = null
 
         val editTextDate = findViewById<EditText>(R.id.editTextDate)
@@ -55,7 +59,6 @@ class agregarPerfil : AppCompatActivity() {
             startActivityForResult(intent, PICK_IMAGE_REQUEST)
         }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -64,7 +67,6 @@ class agregarPerfil : AppCompatActivity() {
             imageView.setImageURI(imageUri)
         }
     }
-
     fun bienvenida(view: View) {
         val intent = Intent(this, bienvenida::class.java)
         startActivity(intent)
