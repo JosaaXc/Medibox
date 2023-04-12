@@ -155,11 +155,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintStart_toEndOf="@+id/acceder"
             app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
         <TextView
-            android:id="@+id/button2"
+            android:id="@+id/acceder"
             style="@style/botonCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
