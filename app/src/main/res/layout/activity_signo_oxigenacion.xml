@@ -49,48 +49,26 @@
             app:layout_constraintTop_toBottomOf="@+id/bg_ritmoc"
             app:srcCompat="@drawable/icon_oxigenacion" />
         <!-- Rango de la oxigenación -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="68sp"
             android:layout_marginStart="30sp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="50sp"
             android:layout_marginEnd="30sp"
-            app:cardBackgroundColor="@color/gris"
-            app:cardCornerRadius="10sp"
-            app:cardElevation="8sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/imageView" >
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3sp"
-                android:layout_gravity="bottom"
-                android:background="@color/azulprincipal"
-                tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="598dp"
-                tools:ignore="SmallSp" />
-
-            <Spinner
-                android:id="@+id/mi_spinner"
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:scrollbarSize="5sp"
-                android:scrollbarStyle="outsideInset" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="3sp"
-                android:layout_gravity="bottom"
-                android:background="@color/azulprincipal"
-                tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="598dp"
-                tools:ignore="SmallSp" />
-        </androidx.cardview.widget.CardView>
+                android:layout_weight="1"
+                android:inputType="none"
+                android:hint="Rango Oxigenación" />
+        </com.google.android.material.textfield.TextInputLayout>
         <!-- Boton Guardar -->
         <TextView
             android:id="@+id/guardar"
@@ -105,7 +83,7 @@
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
         <!-- Boton Cancelar -->
         <TextView
             android:id="@+id/cancelar"
@@ -124,7 +102,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guardar"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
