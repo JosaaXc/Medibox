@@ -129,7 +129,7 @@
         tools:layout_editor_absoluteY="541sp" />
 
     <EditText
-        android:id="@+id/contra"
+        android:id="@+id/ap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="right"

@@ -125,7 +125,7 @@
                 tools:layout_editor_absoluteY="541sp" />
 
             <EditText
-                android:id="@+id/contra"
+                android:id="@+id/ap"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
@@ -244,14 +244,14 @@
             android:textAllCaps="false"
             android:textColor="@color/azulprincipal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/actualizar"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2"
             app:layout_constraintVertical_bias="0.274" />
 
         <TextView
-            android:id="@+id/button"
+            android:id="@+id/actualizar"
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

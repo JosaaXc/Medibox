@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "939332425075",
-    "project_id": "medibox-124cc",
-    "storage_bucket": "medibox-124cc.appspot.com"
+    "project_number": "318826973485",
+    "project_id": "medibox-54e28",
+    "storage_bucket": "medibox-54e28.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:939332425075:android:a8cec1b1ca435500bf6106",
+        "mobilesdk_app_id": "1:318826973485:android:d5e5d7fa740160a1252ba4",
         "android_client_info": {
           "package_name": "com.example.medibox"
         }
       },
       "oauth_client": [
         {
-          "client_id": "939332425075-cete2gst9pg5k7micdf47h2eqeq0hd4d.apps.googleusercontent.com",
+          "client_id": "318826973485-b1c7cr8iri3cpgsmu71mmirqb9jjm34t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAH2sJ11XgUJ4UwzGi_NlXRcfjyxAQ-A7A"
+          "current_key": "AIzaSyD9oZM3C7aBKTRT1FmkVGWjJmr0rpQZCFM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "939332425075-cete2gst9pg5k7micdf47h2eqeq0hd4d.apps.googleusercontent.com",
+              "client_id": "318826973485-b1c7cr8iri3cpgsmu71mmirqb9jjm34t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

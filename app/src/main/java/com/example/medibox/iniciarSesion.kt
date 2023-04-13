@@ -20,11 +20,11 @@ class iniciarSesion : AppCompatActivity() {
         title = "Acceder"
         val acceder = findViewById<TextView>(R.id.acceder)
         val curp = findViewById<EditText>(R.id.curp)
-        val contra = findViewById<EditText>(R.id.contra)
+        val contra = findViewById<EditText>(R.id.ap)
         acceder.setOnClickListener{
             if(curp.text.isNotEmpty() && contra.text.isNotEmpty()){
                 FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(curp.text.toString(),
+                    .signInWithEmailAndPassword(curp.text.toString()+"@gmail.com",
                     contra.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
                         val intent = Intent(this, bienvenida::class.java)

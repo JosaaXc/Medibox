@@ -20,11 +20,11 @@ class registrarUsuario : AppCompatActivity() {
         title = "Autentication"
         val registrarse = findViewById<TextView>(R.id.acceder)
         val curp = findViewById<EditText>(R.id.curp)
-        val contra = findViewById<EditText>(R.id.contra)
+        val contra = findViewById<EditText>(R.id.ap)
         val confirmarcontra = findViewById<EditText>(R.id.confirmarcontra)
         registrarse.setOnClickListener{
             if(curp.text.isNotEmpty() && contra.text.isNotEmpty() && confirmarcontra.text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(curp.text.toString(),
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(curp.text.toString()+"@gmail.com",
                     contra.text.toString()).addOnCompleteListener{
                         if(it.isSuccessful){
                             val intent = Intent(this, bienvenida::class.java)

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,13 +20,10 @@ class agregarPerfil : AppCompatActivity() {
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
     }
-
     private lateinit var imageView: ImageView // Declarar la variable imageView como una propiedad de la clase
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_perfil)
-
         datePicker()
     }
 
