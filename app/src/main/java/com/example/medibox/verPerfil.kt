@@ -2,6 +2,7 @@ package com.example.medibox
 
 import android.app.DatePickerDialog
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,6 +33,20 @@ class verPerfil : AppCompatActivity() {
         setContentView(R.layout.activity_ver_perfil)
 
         datePicker()
+
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+
+        val etNombre = findViewById<TextView>(R.id.nombre)
+        etNombre.text = sharedPreferences.getString("nombre","")
+        val etAp = findViewById<TextView>(R.id.ap)
+        etAp.text = sharedPreferences.getString("apellidoP", "")
+        val etAm = findViewById<TextView>(R.id.apellidom)
+        etAm.text = sharedPreferences.getString("apellidoM", "")
+        val etFecha = findViewById<TextView>(R.id.editTextDate)
+        etFecha.text = sharedPreferences.getString("fecha", "")
+
+
+
 
         val ocultar = findViewById<TextView>(R.id.guardardatos)
         if (FirebaseAuth.getInstance().currentUser != null)

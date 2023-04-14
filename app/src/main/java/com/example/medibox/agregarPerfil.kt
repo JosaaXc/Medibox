@@ -1,6 +1,7 @@
 package com.example.medibox
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,25 @@ class agregarPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_perfil)
         datePicker()
+
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+
+        val aceptar = findViewById<TextView>(R.id.button)
+        aceptar.setOnClickListener {
+            editor.putString("nombre", findViewById<EditText>(R.id.nombre).text.toString())
+            editor.apply()
+            editor.putString("apellidoP", findViewById<EditText>(R.id.ap).text.toString())
+            editor.apply()
+            editor.putString("apellidoM", findViewById<EditText>(R.id.apellidom).text.toString())
+            editor.apply()
+            editor.putString("fecha", findViewById<EditText>(R.id.editTextDate).text.toString())
+            editor.apply()
+
+            val intent = Intent(this, bienvenida::class.java)
+            startActivity(intent)
+        }
     }
 
     fun datePicker(){
