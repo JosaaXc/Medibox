@@ -13,10 +13,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,6 +25,12 @@ class verPerfil : AppCompatActivity() {
 
     val Firebasedatabase = FirebaseDatabase.getInstance()
     val databasereference: DatabaseReference = FirebaseDatabase.getInstance().getReference("/")
+    object UserValues {
+        var nombreU: String? = null
+        var apU: String? = null
+        var amU: String? = null
+        var fechaU: String? = null
+    }
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
     }
@@ -33,19 +39,10 @@ class verPerfil : AppCompatActivity() {
         setContentView(R.layout.activity_ver_perfil)
 
         datePicker()
-
-        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
-
-        val etNombre = findViewById<TextView>(R.id.nombre)
-        etNombre.text = sharedPreferences.getString("nombre","")
-        val etAp = findViewById<TextView>(R.id.ap)
-        etAp.text = sharedPreferences.getString("apellidoP", "")
-        val etAm = findViewById<TextView>(R.id.apellidom)
-        etAm.text = sharedPreferences.getString("apellidoM", "")
-        val etFecha = findViewById<TextView>(R.id.editTextDate)
-        etFecha.text = sharedPreferences.getString("fecha", "")
-
-
+        if(FirebaseAuth.getInstance().currentUser!=null)
+            siEstaLogeado()
+        else
+            pasarLosDatos()
 
 
         val ocultar = findViewById<TextView>(R.id.guardardatos)
@@ -66,6 +63,44 @@ class verPerfil : AppCompatActivity() {
             Toast.makeText(getApplicationContext(), "Actualizado con éxito", Toast.LENGTH_SHORT).show()
         }
         }
+
+    fun pasarLosDatos(){
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+
+        val etNombre = findViewById<TextView>(R.id.nombre)
+        etNombre.text = sharedPreferences.getString("nombre","")
+        val etAp = findViewById<TextView>(R.id.ap)
+        etAp.text = sharedPreferences.getString("apellidoP", "")
+        val etAm = findViewById<TextView>(R.id.apellidom)
+        etAm.text = sharedPreferences.getString("apellidoM", "")
+        val etFecha = findViewById<TextView>(R.id.editTextDate)
+        etFecha.text = sharedPreferences.getString("fecha", "")
+
+        UserValues.nombreU = etNombre.text.toString()
+        UserValues.apU = etAp.text.toString()
+        UserValues.amU = etAm.text.toString()
+        UserValues.fechaU = etFecha.text.toString()
+    }
+    fun siEstaLogeado(){
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid.toString()
+        val databaseUid = FirebaseDatabase.getInstance().getReference("/Persona/$uid")
+        databaseUid.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val etNombre = findViewById<TextView>(R.id.nombre)
+                val etAp = findViewById<TextView>(R.id.ap)
+                val etAm = findViewById<TextView>(R.id.apellidom)
+                val etFecha = findViewById<TextView>(R.id.editTextDate)
+                etAp.text = snapshot.child("ApellidoPaterno").value.toString()
+                etAm.text = snapshot.child("ApellidoMaterno").value.toString()
+                etFecha.text = snapshot.child("Fecha").value.toString()
+                etNombre.text = snapshot.child("Nombre").value.toString()
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("TAG", error.message) // Manejar el error adecuadamente
+            }
+        })
+    }
 
     fun datePicker(){
         var selectedDate: String? = null

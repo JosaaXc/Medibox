@@ -9,12 +9,31 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class registrarUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_usuario)
         setup()
+    }
+
+    private fun mandarDatosBD(){
+        val databasereference: DatabaseReference = FirebaseDatabase.getInstance().getReference("/")
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid.toString()
+
+        val nombre = verPerfil.UserValues.nombreU
+        val ap = verPerfil.UserValues.apU
+        val am = verPerfil.UserValues.amU
+        val fecha = verPerfil.UserValues.fechaU
+
+        databasereference.child("Persona").child(uid).child("Nombre").setValue(nombre)
+        databasereference.child("Persona").child(uid).child("ApellidoPaterno").setValue(ap)
+        databasereference.child("Persona").child(uid).child("ApellidoMaterno").setValue(am)
+        databasereference.child("Persona").child(uid).child("Fecha").setValue(fecha)
+        Toast.makeText(getApplicationContext(), "Actualizado con éxito", Toast.LENGTH_SHORT).show()
     }
     private fun setup(){
         title = "Autentication"
@@ -27,6 +46,7 @@ class registrarUsuario : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(curp.text.toString()+"@gmail.com",
                     contra.text.toString()).addOnCompleteListener{
                         if(it.isSuccessful){
+                            mandarDatosBD()
                             val intent = Intent(this, bienvenida::class.java)
                             startActivity(intent)
                             finish()
