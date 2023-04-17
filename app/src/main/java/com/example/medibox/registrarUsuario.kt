@@ -43,18 +43,30 @@ class registrarUsuario : AppCompatActivity() {
         val confirmarcontra = findViewById<EditText>(R.id.confirmarcontra)
         registrarse.setOnClickListener{
             if(curp.text.isNotEmpty() && contra.text.isNotEmpty() && confirmarcontra.text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(curp.text.toString()+"@gmail.com",
-                    contra.text.toString()).addOnCompleteListener{
-                        if(it.isSuccessful){
+                if(contra.text.toString()==confirmarcontra.text.toString() && contra.text.toString().length>=6) {
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                        curp.text.toString() + "@gmail.com",
+                        contra.text.toString()
+                    ).addOnCompleteListener {
+                        if (it.isSuccessful) {
                             mandarDatosBD()
                             val intent = Intent(this, bienvenida::class.java)
                             startActivity(intent)
                             finish()
-                            Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show()
-                        }else{
+                            Toast.makeText(
+                                getApplicationContext(),
+                                "Registrado con éxito",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
                             showAlert()
                         }
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(), "La contraseña debe ser igual y mayor a 6 digitos", Toast.LENGTH_SHORT).show()
                 }
+            }else {
+                Toast.makeText(getApplicationContext(), "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show()
             }
         }
     }

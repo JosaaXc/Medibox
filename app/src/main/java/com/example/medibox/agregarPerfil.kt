@@ -14,6 +14,8 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.google.firebase.auth.FirebaseAuth
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,12 +29,20 @@ class agregarPerfil : AppCompatActivity() {
         setContentView(R.layout.activity_agregar_perfil)
         datePicker()
 
+        val iniciarS = findViewById<TextView>(R.id.iniciarS)
+        iniciarS.setOnClickListener{
+            val intent = Intent(this, iniciarSesion::class.java)
+            startActivity(intent)
+
+        }
+
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
 
         val aceptar = findViewById<TextView>(R.id.button)
         aceptar.setOnClickListener {
+
             editor.putString("nombre", findViewById<EditText>(R.id.nombre).text.toString())
             editor.apply()
             editor.putString("apellidoP", findViewById<EditText>(R.id.ap).text.toString())

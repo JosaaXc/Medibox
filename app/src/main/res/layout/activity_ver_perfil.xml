@@ -269,14 +269,15 @@
             app:layout_constraintVertical_bias="0.274" />
 
         <TextView
-            android:id="@+id/guardardatos"
+            android:textStyle="italic"
+            android:id="@+id/iniciarS"
             android:layout_width="199dp"
-            android:layout_height="40dp"
+            android:layout_height="48sp"
             android:layout_marginTop="40sp"
             android:onClick="registrarse"
             android:text="Guarda tus datos en la nube"
             android:textAlignment="center"
-            android:textColor="#040303"
+            android:textColor="@color/azulprincipal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/acceder" />

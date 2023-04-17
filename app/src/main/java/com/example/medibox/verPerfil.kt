@@ -1,7 +1,6 @@
 package com.example.medibox
 
 import android.app.DatePickerDialog
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +12,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,13 +35,14 @@ class verPerfil : AppCompatActivity() {
         setContentView(R.layout.activity_ver_perfil)
 
         datePicker()
+
         if(FirebaseAuth.getInstance().currentUser!=null)
             siEstaLogeado()
         else
             pasarLosDatos()
 
 
-        val ocultar = findViewById<TextView>(R.id.guardardatos)
+        val ocultar = findViewById<TextView>(R.id.iniciarS)
         if (FirebaseAuth.getInstance().currentUser != null)
             ocultar.visibility = View.GONE else ocultar.visibility = View.VISIBLE
         val boton = findViewById<TextView>(R.id.actualizar)
@@ -65,6 +62,9 @@ class verPerfil : AppCompatActivity() {
         }
 
     fun pasarLosDatos(){
+        if(FirebaseAuth.getInstance().currentUser!=null){
+
+        }
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
 
         val etNombre = findViewById<TextView>(R.id.nombre)
@@ -80,6 +80,7 @@ class verPerfil : AppCompatActivity() {
         UserValues.apU = etAp.text.toString()
         UserValues.amU = etAm.text.toString()
         UserValues.fechaU = etFecha.text.toString()
+
     }
     fun siEstaLogeado(){
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -91,10 +92,23 @@ class verPerfil : AppCompatActivity() {
                 val etAp = findViewById<TextView>(R.id.ap)
                 val etAm = findViewById<TextView>(R.id.apellidom)
                 val etFecha = findViewById<TextView>(R.id.editTextDate)
+
                 etAp.text = snapshot.child("ApellidoPaterno").value.toString()
                 etAm.text = snapshot.child("ApellidoMaterno").value.toString()
                 etFecha.text = snapshot.child("Fecha").value.toString()
                 etNombre.text = snapshot.child("Nombre").value.toString()
+
+                val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+                val actualizar = sharedPreferences.edit()
+                actualizar.putString("nombre", etNombre.text.toString())
+                actualizar.apply()
+                actualizar.putString("apellidoP", etAp.text.toString())
+                actualizar.apply()
+                actualizar.putString("apellidoM", etAm.text.toString())
+                actualizar.apply()
+                actualizar.putString("fecha", etFecha.text.toString())
+                actualizar.apply()
+
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.d("TAG", error.message) // Manejar el error adecuadamente
