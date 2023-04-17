@@ -29,7 +29,7 @@ class iniciarSesion : AppCompatActivity() {
                     if(it.isSuccessful){
                         val intent = Intent(this, bienvenida::class.java)
                         startActivity(intent)
-                        finish()
+                        finishAffinity()
                         Toast.makeText(getApplicationContext(), "Accedió con éxito", Toast.LENGTH_SHORT).show()
                     }else{
                         showAlert()
