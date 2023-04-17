@@ -1,16 +1,27 @@
 package com.example.medibox
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class bienvenida : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
+
+        if(FirebaseAuth.getInstance().currentUser!=null)
+            siEstaLogeado()
+        else
+            recibirNombre()
 
         val ocultar = findViewById<TextView>(R.id.cerrarsesion)
         ocultar.visibility = View.GONE
@@ -22,6 +33,33 @@ class bienvenida : AppCompatActivity() {
             ocultar.visibility = View.GONE
         }
     }
+
+    fun siEstaLogeado(){
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val uid = currentUser?.uid.toString()
+        val databaseUid = FirebaseDatabase.getInstance().getReference("/Persona/$uid")
+        databaseUid.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val apellidoMostrar = snapshot.child("ApellidoPaterno").value.toString()
+                val nombreMostrar = snapshot.child("Nombre").value.toString()
+
+                val NomAp = findViewById<TextView>(R.id.NomAp)
+                NomAp.text = nombreMostrar + " " + apellidoMostrar
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("TAG", error.message) // Manejar el error adecuadamente
+            }
+        })
+    }
+    fun recibirNombre(){
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+        val nombreAg = sharedPreferences.getString("nombre","")
+        val apellidoAg = sharedPreferences.getString("apellidoP", "")
+        val NomAp = findViewById<TextView>(R.id.NomAp)
+        NomAp.text = nombreAg + " " + apellidoAg
+    }
+
 
     fun setUp() {
         val cerrarsesion = findViewById<TextView>(R.id.cerrarsesion)

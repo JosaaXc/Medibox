@@ -11,7 +11,7 @@
     tools:context=".bienvenida">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/NomAp"
         android:layout_width="match_parent"
         android:layout_height="37sp"
         android:layout_marginStart="36sp"
@@ -37,7 +37,7 @@
         android:onClick="verPerfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/NomAp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -82,7 +82,7 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/imageView5"
@@ -116,7 +116,7 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/glucosa"
@@ -152,7 +152,7 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/oxigenacion"
@@ -188,7 +188,7 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/temperatura"
@@ -224,7 +224,7 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/imc"
@@ -260,7 +260,7 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/vermisdatos"

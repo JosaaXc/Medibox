@@ -58,13 +58,13 @@ class verPerfil : AppCompatActivity() {
             databasereference.child("Persona").child(uid).child("ApellidoMaterno").setValue(am)
             databasereference.child("Persona").child(uid).child("Fecha").setValue(fecha)
             Toast.makeText(getApplicationContext(), "Actualizado con éxito", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, bienvenida::class.java)
+            startActivity(intent)
+            finishAffinity()
         }
         }
 
     fun pasarLosDatos(){
-        if(FirebaseAuth.getInstance().currentUser!=null){
-
-        }
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
 
         val etNombre = findViewById<TextView>(R.id.nombre)
