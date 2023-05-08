@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="16sp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".bienvenida">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/NomAp"
         android:layout_width="match_parent"
         android:layout_height="37sp"
         android:layout_marginStart="36sp"
@@ -31,13 +30,15 @@
         android:layout_width="56sp"
         android:layout_height="55sp"
         android:layout_marginStart="30sp"
-        android:layout_marginTop="52sp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="30sp"
         android:background="@drawable/loginperfil"
+        android:contentDescription="@string/app_name"
+        android:onClick="verPerfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="iniciarSesion"/>
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/NomAp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bienvenido"
@@ -55,6 +56,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/cerrarsesion"
+        android:layout_width="89dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="300sp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="46sp"
+        android:fontFamily="@font/nexa_heavy"
+        android:text="Cerrar Sesion"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100sp"
@@ -65,13 +82,14 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/ritmoc"
+            android:contentDescription="@string/app_name"
             android:onClick="vistaRitmoc"
             android:scaleType="centerCrop" />
 
@@ -98,15 +116,16 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/glucosa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/glucosa"
-            android:scaleType="centerCrop"
-            android:onClick="vistaGlucosa"/>
+            android:contentDescription="@string/app_name"
+            android:onClick="vistaGlucosa"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodeglucosa"
@@ -133,13 +152,15 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/oxigenacion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/oxigenacion"
+            android:contentDescription="@string/app_name"
+            android:onClick="oxigenacion"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -167,13 +188,15 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/temperatura"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/temperatura"
+            android:contentDescription="@string/app_name"
+            android:onClick="temperatura"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -201,13 +224,15 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/imc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/imc"
+            android:contentDescription="@string/app_name"
+            android:onClick="imc"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -235,15 +260,16 @@
         app:cardElevation="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/NomAp">
 
         <TextView
             android:id="@+id/vermisdatos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/datos"
-            android:scaleType="centerCrop"
-            android:onClick="vistaVerMisdatos"/>
+            android:contentDescription="@string/app_name"
+            android:onClick="vistaVerMisdatos"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textodevermisdatos"

@@ -4,24 +4,37 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.Toast
+import com.example.medibox.databinding.ActivitySignoRitmocBinding
 
-class signoRitmoc : AppCompatActivity() {
+class signoRitmoc : AppCompatActivity(), AdapterView.OnItemClickListener {
+    private lateinit var binding: ActivitySignoRitmocBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signo_ritmoc)
+        binding = ActivitySignoRitmocBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        //leemos las opciones del array ubicado den strings.xml
-        val opciones = resources.getStringArray(R.array.rg_ritmoc)
-        //Creamos el adapatador
-        val adaptador = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
-        val spinner = findViewById <Spinner> (R.id.mi_spinner)
-        spinner.adapter = adaptador
+        val ritmosC = resources.getStringArray(R.array.rg_ritmoc)
+        val adapter = ArrayAdapter(
+            this, R.layout.list_item,
+            ritmosC
+        )
+        with(binding.autoCompleteTextView){
+            setAdapter(adapter)
+            onItemClickListener = this@signoRitmoc
+        }
     }
     fun btnCancelar (view: View){
         val intent = Intent(this, bienvenida::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        //aqui obtenemos el elemento seleccionado y lo guardamos en item
+        val item = parent?.getItemAtPosition(position).toString()
+        Toast.makeText(this@signoRitmoc, item, Toast.LENGTH_SHORT).show()
     }
 }

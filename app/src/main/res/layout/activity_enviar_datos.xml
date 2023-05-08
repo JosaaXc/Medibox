@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/agregarPerfil"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".agregarPerfil">
 
         <ImageView
@@ -68,7 +68,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:paddingLeft="15sp"
                 app:srcCompat="@drawable/icono_mail" />
 
@@ -76,13 +76,13 @@
                 android:id="@+id/nombre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:background="@drawable/rellenar_info"
                 android:ems="10"
                 android:fontFamily="@font/inter"
                 android:hint="Correo electronico"
                 android:inputType="textPersonName"
-                android:paddingLeft="50sp"
+                android:paddingStart="50sp"
                 android:textColorHint="@color/grisdeletras" />
 
             <View
@@ -97,16 +97,17 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
-            android:layout_width="388dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="99sp"
             android:layout_marginStart="30sp"
+            android:layout_marginTop="22sp"
             android:layout_marginEnd="30sp"
             app:cardCornerRadius="10sp"
             app:cardElevation="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="558dp">
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:ignore="MissingConstraints">
 
             <View
                 android:layout_width="match_parent"
@@ -121,7 +122,7 @@
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
-                android:paddingLeft="15sp"
+                android:paddingStart="15sp"
                 app:srcCompat="@drawable/icono_pdf"
                 tools:layout_editor_absoluteX="43sp"
                 tools:layout_editor_absoluteY="642sp" />
@@ -134,8 +135,7 @@
                 android:focusable="false"
                 android:fontFamily="@font/inter"
                 android:hint="Mis_SignosVitales.pdf"
-                android:inputType="none"
-                android:paddingLeft="80sp"
+                android:paddingStart="80sp"
                 android:textColorHint="@color/grisdeletras" />
 
 
@@ -155,11 +155,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintStart_toEndOf="@+id/acceder"
             app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
         <TextView
-            android:id="@+id/button2"
+            android:id="@+id/acceder"
             style="@style/botonCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".signoRitmoc">
 
         <TextView
@@ -21,9 +21,9 @@
 
 
         <TextView
-            android:layout_width="190dp"
-            android:layout_height="104dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="190sp"
+            android:layout_height="104sp"
+            android:layout_marginTop="50sp"
             android:fontFamily="@font/nexa_heavy"
             android:gravity="left"
             android:text="@string/ritmoc"
@@ -34,50 +34,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Rango -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="68sp"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="30sp"
-            app:cardBackgroundColor="@color/gris"
-            app:cardCornerRadius="10sp"
-            app:cardElevation="8sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3sp"
-                android:layout_gravity="bottom"
-                android:background="@color/azulprincipal"
-                tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="598dp"
-                tools:ignore="SmallSp" />
-
-            <Spinner
-                android:id="@+id/mi_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:scrollbarSize="5sp"
-                android:scrollbarStyle="outsideInset" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="3sp"
-                android:layout_gravity="bottom"
-                android:background="@color/azulprincipal"
-                tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="598dp"
-                tools:ignore="SmallSp" />
-        </androidx.cardview.widget.CardView>
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="150sp"
@@ -87,6 +43,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bg_ritmoc"
             app:srcCompat="@drawable/ritmo_cardiaco" />
+        <!-- Rango -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="68sp"
+            android:layout_marginStart="30sp"
+            android:layout_marginTop="50sp"
+            android:layout_marginEnd="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" >
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:hint="Rango de Ritmo Cardiaco" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/guardar"
@@ -101,7 +78,7 @@
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
         <TextView
             android:id="@+id/cancelar"
@@ -120,7 +97,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guardar"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
