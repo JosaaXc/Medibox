@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bienvenido" />
 
-    <TextView
+    <ImageView
         android:id="@+id/imageView6"
         android:layout_width="56sp"
         android:layout_height="55sp"
@@ -58,17 +58,17 @@
 
     <TextView
         android:id="@+id/cerrarsesion"
-        android:layout_width="89sp"
-        android:layout_height="21sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="300sp"
         android:layout_marginTop="84sp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/nexa_heavy"
-        android:text="Cerrar Sesion"
+        android:text="@string/csesion"
         android:textColor="#000000"
-        android:textSize="12sp"
+        android:textSize="9sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
