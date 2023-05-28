@@ -1,11 +1,11 @@
 package com.example.medibox
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -27,6 +27,7 @@ class verPerfil : AppCompatActivity() {
         var amU: String? = null
         var fechaU: String? = null
     }
+
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
     }
@@ -34,6 +35,8 @@ class verPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_perfil)
 
+        val imageView = findViewById<ImageView>(R.id.imageView2)
+        makeImageViewCircular(imageView)
         datePicker()
 
         if(FirebaseAuth.getInstance().currentUser!=null)
@@ -64,6 +67,10 @@ class verPerfil : AppCompatActivity() {
         }
         }
 
+    fun makeImageViewCircular(imageView: ImageView) {
+        imageView.background = resources.getDrawable(R.drawable.round_image)
+        imageView.clipToOutline = true
+    }
     fun pasarLosDatos(){
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
 
@@ -137,13 +144,6 @@ class verPerfil : AppCompatActivity() {
 
         editTextDate.setOnClickListener {
             datePickerDialog.show()
-        }
-
-        val imageView = findViewById<ImageView>(R.id.imageView2) // Asignar la variable imageView como propiedad de la clase
-
-        imageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, PICK_IMAGE_REQUEST)
         }
     }
     fun registrarse(view: View) {
