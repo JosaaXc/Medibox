@@ -18,7 +18,7 @@ class iniciarSesion : AppCompatActivity() {
     }
     private fun setup(){
         title = "Acceder"
-        val acceder = findViewById<TextView>(R.id.acceder)
+        val acceder = findViewById<TextView>(R.id.btnCancelar)
         val curp = findViewById<EditText>(R.id.curp)
         val contra = findViewById<EditText>(R.id.ap)
         acceder.setOnClickListener{

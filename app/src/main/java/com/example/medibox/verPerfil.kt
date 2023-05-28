@@ -1,23 +1,28 @@
 package com.example.medibox
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class verPerfil : AppCompatActivity() {
+    private var selectedObject: Any? = null
 
     val Firebasedatabase = FirebaseDatabase.getInstance()
     val databasereference: DatabaseReference = FirebaseDatabase.getInstance().getReference("/")
@@ -64,6 +69,13 @@ class verPerfil : AppCompatActivity() {
             val intent = Intent(this, bienvenida::class.java)
             startActivity(intent)
             finishAffinity()
+        }
+
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+        val resourceId = sharedPreferences.getInt("claveObjetoSeleccionado", 0) // Obtener el identificador de recurso guardado
+
+        if (resourceId != 0) {
+            imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
         }
         }
 
@@ -150,4 +162,101 @@ class verPerfil : AppCompatActivity() {
         val intent = Intent(this, registrarUsuario::class.java)
         startActivity(intent)
     }
+    fun clicCancelar(view: View){
+        finish()
+    }
+    @SuppressLint("SuspiciousIndentation")
+    fun imgPerfil(view: View){
+        val dialogBuilder = AlertDialog.Builder(view.context)
+
+        // Inflar el diseño de la ventana flotante
+        val inflater = LayoutInflater.from(view.context)
+        val dialogView = inflater.inflate(R.layout.dialog_layout, null)
+
+        val imageView1 = dialogView.findViewById<ImageView>(R.id.imageView4)
+        val imageView2 = dialogView.findViewById<ImageView>(R.id.imageView2)
+        val imageView3 = dialogView.findViewById<ImageView>(R.id.imageView3)
+        val imageView4 = dialogView.findViewById<ImageView>(R.id.imageView4)
+        val imageMarceline = dialogView.findViewById<ImageView>(R.id.imageView5)
+        val imageNum3 = dialogView.findViewById<ImageView>(R.id.imageView6)
+        val imageDPrincesa = dialogView.findViewById<ImageView>(R.id.imageView7)
+        val imageRaven = dialogView.findViewById<ImageView>(R.id.imageView8)
+
+        var alertDialog: AlertDialog? = null
+
+        // Establecer listener de clic para el ImageView1
+        imageView1.setOnClickListener {
+            val resourceId = R.drawable.emo// Aquí estableces el objeto seleccionado correspondiente a imageView1
+                    // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+            Toast.makeText(getApplicationContext(), "Imagen de FINN", Toast.LENGTH_SHORT).show()
+        }
+
+        // Establecer listener de clic para el ImageView2
+        imageView2.setOnClickListener {
+            val resourceId = R.drawable.jake// Aquí estableces el objeto seleccionado correspondiente a imageView2
+                    // Guardar el objeto seleccionado en SharedPreferences
+                guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+
+        imageView3.setOnClickListener {
+            val resourceId = R.drawable.batman// Aquí estableces el objeto seleccionado correspondiente a imageView2
+            // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+        imageView4.setOnClickListener {
+            val resourceId = R.drawable.robin// Aquí estableces el objeto seleccionado correspondiente a imageView2
+            // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+        imageMarceline.setOnClickListener {
+            val resourceId = R.drawable.marceline// Aquí estableces el objeto seleccionado correspondiente a imageView2
+            // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+        imageNum3.setOnClickListener {
+            val resourceId = R.drawable.numero3// Aquí estableces el objeto seleccionado correspondiente a imageView2
+            // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+        imageDPrincesa.setOnClickListener {
+            val resourceId = R.drawable.dprincesa// Aquí estableces el objeto seleccionado correspondiente a imageView2
+            // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+        imageRaven.setOnClickListener {
+            val resourceId = R.drawable.raven// Aquí estableces el objeto seleccionado correspondiente a imageView2
+            // Guardar el objeto seleccionado en SharedPreferences
+            guardarObjetoSeleccionado(resourceId)
+            alertDialog?.dismiss() // Cierra el diálogo emergente
+        }
+
+        dialogBuilder.setView(dialogView)
+
+        // Crear y mostrar el diálogo emergente
+        alertDialog = dialogBuilder.create()
+        alertDialog.show()
+    }
+    fun guardarObjetoSeleccionado(resourceId: Int) {
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("claveObjetoSeleccionado", resourceId)
+        editor.apply()
+
+
+        val resourceId = sharedPreferences.getInt("claveObjetoSeleccionado", 0) // Obtener el identificador de recurso guardado
+        val imageView = findViewById<ImageView>(R.id.imageView2)
+        if (resourceId != 0) {
+            imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+        }
+
+    }
+
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -32,6 +33,19 @@ class bienvenida : AppCompatActivity() {
         } else {
             ocultar.visibility = View.GONE
         }
+
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+        val resourceId = sharedPreferences.getInt("claveObjetoSeleccionado", 0) // Obtener el identificador de recurso guardado
+        val imageView = findViewById<ImageView>(R.id.imageView6)
+        makeImageViewCircular(imageView)
+        if (resourceId != 0) {
+
+            imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+        }
+    }
+    fun makeImageViewCircular(imageView: ImageView) {
+        imageView.background = resources.getDrawable(R.drawable.round_image)
+        imageView.clipToOutline = true
     }
 
     fun siEstaLogeado(){

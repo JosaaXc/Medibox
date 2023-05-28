@@ -5,6 +5,7 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="ritmoc">Ritmo&#10;Cardiaco</string>
+    <string name="csesion">Cerrar&#10;Sesión</string>
     <string name="glucosa">Glucosa</string>
     <string name="oxigenacion">Oxigenación</string>
     <string name="temperatura">Temperatura</string>
