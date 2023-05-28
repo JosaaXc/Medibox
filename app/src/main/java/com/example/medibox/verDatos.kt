@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.NumberPicker
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -35,29 +37,107 @@ class verDatos : AppCompatActivity() {
         fecha.text = "Año: " + añoSeleccionado.toString()
 
         btnSeleccionarAnio.setOnClickListener {
-            // Mostrar un cuadro de diálogo o selector de año para que el usuario seleccione el filtro de año
-            // Obtener el año seleccionado por el usuario
-            añoSeleccionado = 2023
-            fecha.text = "Año: $añoSeleccionado"
-            // Aplicar el filtro y mostrar solo los registros que coincidan con el año seleccionado
-            filtrarRegistrosPorAnio(añoSeleccionado)
-        }
+                    val añosDisponibles = listOf(2020, 2021, 2022, 2023, 2024) // Lista de años disponibles
+
+                    // Crear el NumberPicker con los años disponibles
+                    val numberPicker = NumberPicker(this)
+                    numberPicker.minValue = añosDisponibles.first()
+                    numberPicker.maxValue = añosDisponibles.last()
+                    numberPicker.wrapSelectorWheel = false
+                    numberPicker.displayedValues = añosDisponibles.map { it.toString() }.toTypedArray()
+
+                    // Crear el cuadro de diálogo
+                    val alertDialogBuilder = AlertDialog.Builder(this)
+                    alertDialogBuilder.setTitle("Seleccionar año")
+                    alertDialogBuilder.setView(numberPicker)
+
+                    // Configurar los botones del cuadro de diálogo
+                    alertDialogBuilder.setPositiveButton("Aceptar") { _, _ ->
+                        // Obtener el año seleccionado
+                        añoSeleccionado = numberPicker.value
+
+                        // Actualizar el texto en el TextView
+                        fecha.text = "Año: $añoSeleccionado"
+
+                        // Aplicar el filtro y mostrar solo los registros que coincidan con el año seleccionado
+                        filtrarRegistrosPorAnio(añoSeleccionado)
+                    }
+                    alertDialogBuilder.setNegativeButton("Cancelar", null)
+
+                    // Mostrar el cuadro de diálogo
+                    alertDialogBuilder.create().show()
+                }
+
 
         btnSeleccionarMes.setOnClickListener {
-            // Mostrar un cuadro de diálogo o selector de mes para que el usuario seleccione el filtro de mes
-            // Obtener el mes seleccionado por el usuario
-            mesSeleccionado = 5
-            // Aplicar el filtro y mostrar solo los registros que coincidan con el mes seleccionado
-            fecha.text = "Año: $añoSeleccionado  Mes: $mesSeleccionado"
-            filtrarRegistrosPorMes(añoSeleccionado, mesSeleccionado)
+            // Lista de meses disponibles
+            val mesesDisponibles = arrayOf(
+                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            )
+
+            // Crear el NumberPicker con los meses disponibles
+            val numberPicker = NumberPicker(this)
+            numberPicker.minValue = 1
+            numberPicker.maxValue = mesesDisponibles.size
+            numberPicker.displayedValues = mesesDisponibles
+
+            // Crear el cuadro de diálogo
+            val alertDialogBuilder = AlertDialog.Builder(this)
+            alertDialogBuilder.setTitle("Seleccionar mes")
+            alertDialogBuilder.setView(numberPicker)
+
+            // Configurar los botones del cuadro de diálogo
+            alertDialogBuilder.setPositiveButton("Aceptar") { _, _ ->
+                // Obtener el mes seleccionado
+                mesSeleccionado = numberPicker.value
+
+                // Actualizar el texto en el TextView
+                fecha.text = "Año: $añoSeleccionado  Mes: $mesSeleccionado"
+
+                // Aplicar el filtro y mostrar solo los registros que coincidan con el mes seleccionado
+                filtrarRegistrosPorMes(añoSeleccionado, mesSeleccionado)
+            }
+            alertDialogBuilder.setNegativeButton("Cancelar", null)
+
+            // Mostrar el cuadro de diálogo
+            alertDialogBuilder.create().show()
         }
         btnSeleccionarSemana.setOnClickListener {
-            // Mostrar un cuadro de diálogo o selector de mes para que el usuario seleccione el filtro de mes
-            // Obtener el mes seleccionado por el usuario
-            val semanaSeleccioanda = 4
-            fecha.text = "Año: $añoSeleccionado  Mes: $mesSeleccionado Semana: $semanaSeleccioanda"
-            // Aplicar el filtro y mostrar solo los registros que coincidan con el mes seleccionado
-            filtrarRegistrosPorSemana(añoSeleccionado, mesSeleccionado, semanaSeleccioanda)
+            // Lista de semanas disponibles con sus rangos de días
+            val semanasDisponibles = arrayOf(
+                "Semana 1: 1 al 7",
+                "Semana 2: 8 al 14",
+                "Semana 3: 15 al 21",
+                "Últimos dias del mes: 22 al 31"
+            )
+
+            // Crear el NumberPicker con las semanas disponibles
+            val numberPicker = NumberPicker(this)
+            numberPicker.minValue = 1
+            numberPicker.maxValue = semanasDisponibles.size
+            numberPicker.displayedValues = semanasDisponibles
+
+            // Crear el cuadro de diálogo
+            val alertDialogBuilder = AlertDialog.Builder(this)
+            alertDialogBuilder.setTitle("Seleccionar semana")
+            alertDialogBuilder.setView(numberPicker)
+
+            // Configurar los botones del cuadro de diálogo
+            alertDialogBuilder.setPositiveButton("Aceptar") { _, _ ->
+                // Obtener la semana seleccionada
+                val semanaSeleccionada = numberPicker.value
+
+                // Actualizar el texto en el TextView
+                fecha.text = "Año: $añoSeleccionado  Mes: $mesSeleccionado Semana: $semanaSeleccionada"
+
+                // Aplicar el filtro y mostrar solo los registros que coincidan con la semana seleccionada
+                filtrarRegistrosPorSemana(añoSeleccionado, mesSeleccionado, semanaSeleccionada)
+            }
+            alertDialogBuilder.setNegativeButton("Cancelar", null)
+
+            // Mostrar el cuadro de diálogo
+            alertDialogBuilder.create().show()
         }
     }
     private fun filtrarRegistrosPorSemana(anio: Int, mes: Int, semana: Int) {
@@ -119,7 +199,10 @@ class verDatos : AppCompatActivity() {
 
     // Función para obtener el número de semana a partir de un día del mes
     private fun obtenerNumeroSemana(dia: Int): Int {
-        return (dia - 1) / 7 + 1
+        if(dia >= 28)
+            return 4
+        else
+            return (dia - 1) / 7 + 1
     }
 
 
