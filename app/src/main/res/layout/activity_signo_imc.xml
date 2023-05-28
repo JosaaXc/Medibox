@@ -125,7 +125,7 @@
                 app:srcCompat="@drawable/icon_cara" />
 
             <EditText
-                android:id="@+id/nombre"
+                android:id="@+id/peso"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
@@ -155,15 +155,10 @@
             app:cardBackgroundColor="@color/gris"
             app:cardCornerRadius="10sp"
             app:cardElevation="8sp"
+            android:inputType="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3sp"
-                android:layout_gravity="bottom"
-                android:background="@color/azulprincipal" />
 
             <EditText
                 android:id="@+id/imc"
@@ -172,9 +167,9 @@
                 android:layout_gravity="right"
                 android:background="@drawable/rellenar_info"
                 android:ems="10"
+                android:inputType="none"
                 android:fontFamily="@font/inter"
                 android:hint="Su IMC"
-                android:inputType="textPersonName"
                 android:paddingLeft="50sp"
                 android:textColorHint="@color/grisdeletras" />
 
@@ -187,7 +182,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/button"
+            android:id="@+id/buttonEnviar"
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
