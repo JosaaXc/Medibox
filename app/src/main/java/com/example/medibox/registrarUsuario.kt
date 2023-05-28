@@ -37,7 +37,7 @@ class registrarUsuario : AppCompatActivity() {
     }
     private fun setup(){
         title = "Autentication"
-        val registrarse = findViewById<TextView>(R.id.acceder)
+        val registrarse = findViewById<TextView>(R.id.btnCancelar)
         val curp = findViewById<EditText>(R.id.curp)
         val contra = findViewById<EditText>(R.id.ap)
         val confirmarcontra = findViewById<EditText>(R.id.confirmarcontra)

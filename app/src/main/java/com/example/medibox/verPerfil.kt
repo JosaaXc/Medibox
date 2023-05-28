@@ -150,4 +150,7 @@ class verPerfil : AppCompatActivity() {
         val intent = Intent(this, registrarUsuario::class.java)
         startActivity(intent)
     }
+    fun clicCancelar(view: View){
+        finish()
+    }
 }

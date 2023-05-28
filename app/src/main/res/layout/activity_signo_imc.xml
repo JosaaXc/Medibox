@@ -84,7 +84,7 @@
                 android:ems="10"
                 android:fontFamily="@font/inter"
                 android:hint="Altura"
-                android:inputType="textPersonName"
+                android:inputType="numberDecimal"
                 android:paddingLeft="50sp"
                 android:textColorHint="@color/grisdeletras" />
 
@@ -101,14 +101,14 @@
             android:layout_width="match_parent"
             android:layout_height="68sp"
             android:layout_marginStart="30sp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="30sp"
             app:cardBackgroundColor="@color/gris"
             app:cardCornerRadius="10sp"
             app:cardElevation="8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2">
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <View
                 android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                 android:ems="10"
                 android:fontFamily="@font/inter"
                 android:hint="Peso"
-                android:inputType="textPersonName"
+                android:inputType="numberDecimal"
                 android:paddingLeft="50sp"
                 android:textColorHint="@color/grisdeletras" />
 
@@ -150,14 +150,14 @@
             android:layout_width="188dp"
             android:layout_height="65dp"
             android:layout_marginStart="30sp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="30sp"
             app:cardBackgroundColor="@color/gris"
             app:cardCornerRadius="10sp"
             app:cardElevation="8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2">
+            app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
             <View
                 android:layout_width="match_parent"
@@ -191,35 +191,34 @@
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="250sp"
-            android:layout_marginEnd="80sp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
             android:background="@drawable/boton_redondo"
             android:shadowRadius="3"
             android:text="Enviar"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/acceder"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintStart_toEndOf="@+id/btnCancelar"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
         <TextView
-            android:id="@+id/acceder"
+            android:id="@+id/btnCancelar"
             style="@style/botonCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80sp"
-            android:layout_marginTop="250sp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/boton_radiocancelar"
             android:text="Cancelar"
             android:textAllCaps="false"
             android:textColor="@color/azulprincipal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView3"
+            android:onClick="imcCancelar"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -145,7 +145,7 @@
     <!--boton-->
 
         <TextView
-            android:id="@+id/acceder"
+            android:id="@+id/btnCancelar"
             style="@style/botonCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
         android:textColor="#040303"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acceder" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCancelar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
