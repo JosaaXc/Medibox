@@ -52,7 +52,7 @@ class signoTemperatura : AppCompatActivity(), AdapterView.OnItemClickListener {
         val uid = currentUser?.uid.toString()
 
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
-        val signosReference = databaseReference.child("Signos").child(uid).child("temperatura")
+        val signosReference = databaseReference.child("Signos").child(uid).child("Temperatura")
 
         val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
         val currentTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())

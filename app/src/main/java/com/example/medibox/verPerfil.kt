@@ -35,6 +35,8 @@ class verPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_perfil)
 
+        val imageView = findViewById<ImageView>(R.id.imageView2)
+        makeImageViewCircular(imageView)
         datePicker()
 
         if(FirebaseAuth.getInstance().currentUser!=null)
@@ -65,6 +67,10 @@ class verPerfil : AppCompatActivity() {
         }
         }
 
+    fun makeImageViewCircular(imageView: ImageView) {
+        imageView.background = resources.getDrawable(R.drawable.round_image)
+        imageView.clipToOutline = true
+    }
     fun pasarLosDatos(){
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
 

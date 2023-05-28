@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import com.example.medibox.databinding.ActivitySignoOxigenacionBinding
-import com.example.medibox.databinding.ActivitySignoRitmocBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -53,7 +52,7 @@ class signoOxigenacion : AppCompatActivity(), AdapterView.OnItemClickListener {
         val uid = currentUser?.uid.toString()
 
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
-        val signosReference = databaseReference.child("Signos").child(uid).child("oxigenacion")
+        val signosReference = databaseReference.child("Signos").child(uid).child("Oxigenación")
 
         val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
         val currentTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())

@@ -48,7 +48,7 @@ class signoRitmoc : AppCompatActivity(), AdapterView.OnItemClickListener {
         val uid = currentUser?.uid.toString()
 
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
-        val signosReference = databaseReference.child("Signos").child(uid).child("ritmoCardiaco")
+        val signosReference = databaseReference.child("Signos").child(uid).child("Ritmo Cardiaco")
 
         val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
         val currentTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
