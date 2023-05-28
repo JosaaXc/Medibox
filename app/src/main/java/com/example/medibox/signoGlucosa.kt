@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.example.medibox.databinding.ActivitySignoGlucosaBinding
-import com.example.medibox.databinding.ActivitySignoRitmocBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -53,9 +52,13 @@ class signoGlucosa : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
         val currentTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+        val formatoDiaSemana = SimpleDateFormat("EEEE", Locale("es", "ES"))
+        val currentDayOfWeek = formatoDiaSemana.format(Date()).capitalize()
+
 
         val registroReference = signosReference.child(currentDate)
         registroReference.child("valor").setValue(valor)
+        registroReference.child("dia").setValue(currentDayOfWeek)
         registroReference.child("hora").setValue(currentTime)
 
         Toast.makeText(this@signoGlucosa, "$valor\nFue agregado con éxito", Toast.LENGTH_SHORT).show()

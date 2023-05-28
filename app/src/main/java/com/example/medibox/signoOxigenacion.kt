@@ -56,9 +56,12 @@ class signoOxigenacion : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
         val currentTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+        val formatoDiaSemana = SimpleDateFormat("EEEE", Locale("es", "ES"))
+        val currentDayOfWeek = formatoDiaSemana.format(Date()).capitalize()
 
         val registroReference = signosReference.child(currentDate)
         registroReference.child("valor").setValue(valor)
+        registroReference.child("dia").setValue(currentDayOfWeek)
         registroReference.child("hora").setValue(currentTime)
 
         Toast.makeText(this@signoOxigenacion, "$valor\nFue agregado con éxito", Toast.LENGTH_SHORT).show()

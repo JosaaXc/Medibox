@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -14,13 +15,78 @@
         android:id="@+id/btnEnviarDatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enviar Datos"
-        android:onClick="enviarDatos" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5sp"
+        android:onClick="enviarDatos"
+        android:text="Enviar Datos" />
 
-    <ScrollView
-        android:layout_below="@id/btnEnviarDatos"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnSeleccionarAnio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="69sp"
+            android:layout_marginBottom="5dp"
+            android:text="Año"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSeleccionarMes"
+            app:layout_constraintEnd_toStartOf="@+id/btnSeleccionarMes"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnSeleccionarSemana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="69sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="5dp"
+            android:text="Semana"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSeleccionarMes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/btnSeleccionarMes"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnSeleccionarMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="69sp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="5dp"
+            android:text="Mes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSeleccionarSemana"
+            app:layout_constraintStart_toEndOf="@+id/btnSeleccionarAnio"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/mostraFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintTop_toBottomOf="@+id/btnSeleccionarAnio"
+            tools:layout_editor_absoluteX="34sp"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnEnviarDatos"
+        android:layout_marginTop="100sp">
 
         <LinearLayout
             android:id="@+id/registrosLayout"
