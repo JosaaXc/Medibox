@@ -22,6 +22,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class verPerfil : AppCompatActivity() {
+
+    val diccionario: Map<Int, String> = hashMapOf(
+        1 to "emo",
+        2 to "jake",
+        3 to "batman",
+        4 to "robin",
+        5 to "marceline",
+        6 to "numero3",
+        7 to "dprincesa",
+        8 to "raven"
+    )
     private var selectedObject: Any? = null
 
     val Firebasedatabase = FirebaseDatabase.getInstance()
@@ -112,6 +123,15 @@ class verPerfil : AppCompatActivity() {
                 etAm.text = snapshot.child("ApellidoMaterno").value.toString()
                 etFecha.text = snapshot.child("Fecha").value.toString()
                 etNombre.text = snapshot.child("Nombre").value.toString()
+                val avatar = snapshot.child("Imagen").getValue(Int::class.java)
+                if (avatar != null) {
+                    val avatarMostrar = diccionario[avatar]
+                    val resourceId = resources.getIdentifier(avatarMostrar, "drawable", packageName)
+                    val imageView = findViewById<ImageView>(R.id.imageView2)
+                    imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                }
+
+
 
                 val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
                 val actualizar = sharedPreferences.edit()

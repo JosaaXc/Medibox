@@ -15,6 +15,16 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class bienvenida : AppCompatActivity() {
+    val diccionario: Map<Int, String> = hashMapOf(
+        1 to "emo",
+        2 to "jake",
+        3 to "batman",
+        4 to "robin",
+        5 to "marceline",
+        6 to "numero3",
+        7 to "dprincesa",
+        8 to "raven"
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
@@ -59,6 +69,13 @@ class bienvenida : AppCompatActivity() {
 
                 val NomAp = findViewById<TextView>(R.id.NomAp)
                 NomAp.text = nombreMostrar + " " + apellidoMostrar
+                val avatar = snapshot.child("Imagen").getValue(Int::class.java)
+                if (avatar != null) {
+                    val avatarMostrar = diccionario[avatar]
+                    val resourceId = resources.getIdentifier(avatarMostrar, "drawable", packageName)
+                    val imageView = findViewById<ImageView>(R.id.imageView6)
+                    imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                }
 
             }
             override fun onCancelled(error: DatabaseError) {
