@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -88,5 +89,8 @@ class signoImc : AppCompatActivity() {
         val intent = Intent(this, bienvenida::class.java)
         startActivity(intent)
         finishAffinity()
+    }
+    fun imcCancelar(view: View){
+        finish()
     }
 }
