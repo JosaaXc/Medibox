@@ -65,10 +65,6 @@ class verPerfil : AppCompatActivity() {
             databasereference.child("Persona").child(uid).child("ApellidoPaterno").setValue(ap)
             databasereference.child("Persona").child(uid).child("ApellidoMaterno").setValue(am)
             databasereference.child("Persona").child(uid).child("Fecha").setValue(fecha)
-            Toast.makeText(getApplicationContext(), "Actualizado con éxito", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, bienvenida::class.java)
-            startActivity(intent)
-            finishAffinity()
         }
 
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
@@ -173,7 +169,7 @@ class verPerfil : AppCompatActivity() {
         val inflater = LayoutInflater.from(view.context)
         val dialogView = inflater.inflate(R.layout.dialog_layout, null)
 
-        val imageView1 = dialogView.findViewById<ImageView>(R.id.imageView4)
+        val imageView1 = dialogView.findViewById<ImageView>(R.id.imageView1)
         val imageView2 = dialogView.findViewById<ImageView>(R.id.imageView2)
         val imageView3 = dialogView.findViewById<ImageView>(R.id.imageView3)
         val imageView4 = dialogView.findViewById<ImageView>(R.id.imageView4)
@@ -188,53 +184,52 @@ class verPerfil : AppCompatActivity() {
         imageView1.setOnClickListener {
             val resourceId = R.drawable.emo// Aquí estableces el objeto seleccionado correspondiente a imageView1
                     // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 1)
             alertDialog?.dismiss() // Cierra el diálogo emergente
-            Toast.makeText(getApplicationContext(), "Imagen de FINN", Toast.LENGTH_SHORT).show()
         }
 
         // Establecer listener de clic para el ImageView2
         imageView2.setOnClickListener {
             val resourceId = R.drawable.jake// Aquí estableces el objeto seleccionado correspondiente a imageView2
                     // Guardar el objeto seleccionado en SharedPreferences
-                guardarObjetoSeleccionado(resourceId)
+                guardarObjetoSeleccionado(resourceId, idDeLaImagen = 2)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
 
         imageView3.setOnClickListener {
             val resourceId = R.drawable.batman// Aquí estableces el objeto seleccionado correspondiente a imageView2
             // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 3)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
         imageView4.setOnClickListener {
             val resourceId = R.drawable.robin// Aquí estableces el objeto seleccionado correspondiente a imageView2
             // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 4)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
         imageMarceline.setOnClickListener {
             val resourceId = R.drawable.marceline// Aquí estableces el objeto seleccionado correspondiente a imageView2
             // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 5)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
         imageNum3.setOnClickListener {
             val resourceId = R.drawable.numero3// Aquí estableces el objeto seleccionado correspondiente a imageView2
             // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 6)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
         imageDPrincesa.setOnClickListener {
             val resourceId = R.drawable.dprincesa// Aquí estableces el objeto seleccionado correspondiente a imageView2
             // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 7)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
         imageRaven.setOnClickListener {
             val resourceId = R.drawable.raven// Aquí estableces el objeto seleccionado correspondiente a imageView2
             // Guardar el objeto seleccionado en SharedPreferences
-            guardarObjetoSeleccionado(resourceId)
+            guardarObjetoSeleccionado(resourceId, idDeLaImagen = 8)
             alertDialog?.dismiss() // Cierra el diálogo emergente
         }
 
@@ -244,19 +239,28 @@ class verPerfil : AppCompatActivity() {
         alertDialog = dialogBuilder.create()
         alertDialog.show()
     }
-    fun guardarObjetoSeleccionado(resourceId: Int) {
+    fun guardarObjetoSeleccionado(resourceId: Int, idDeLaImagen: Int) {
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putInt("claveObjetoSeleccionado", resourceId)
         editor.apply()
 
+        val boton = findViewById<TextView>(R.id.actualizar)
+        boton.setOnClickListener {
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            val uid = currentUser?.uid.toString()
+            databasereference.child("Persona").child(uid).child("Imagen").setValue(idDeLaImagen)
+            Toast.makeText(getApplicationContext(), "Actualizado con éxito", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, bienvenida::class.java)
+            startActivity(intent)
+            finishAffinity()
+        }
 
         val resourceId = sharedPreferences.getInt("claveObjetoSeleccionado", 0) // Obtener el identificador de recurso guardado
         val imageView = findViewById<ImageView>(R.id.imageView2)
         if (resourceId != 0) {
             imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
         }
-
     }
 
 }
