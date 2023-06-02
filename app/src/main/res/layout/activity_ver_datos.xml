@@ -77,7 +77,9 @@
             android:text="TextView"
             app:layout_constraintTop_toBottomOf="@+id/btnSeleccionarAnio"
             tools:layout_editor_absoluteX="34sp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            style="@style/ShadowTextViewStyle"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -86,13 +88,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/btnEnviarDatos"
-        android:layout_marginTop="100sp">
+        android:layout_marginTop="100sp"
+        android:contentDescription="@string/app_name">
 
         <LinearLayout
             android:id="@+id/registrosLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="10sp">
 
             <!-- Aquí se agregarán dinámicamente los elementos de registro -->
 

@@ -30,4 +30,11 @@
         <item name="android:width">126sp</item>
     </style>
 
+    <style name="ShadowTextViewStyle">
+        <item name="android:background">@drawable/rounded_background</item> <!-- Aplicar el fondo redondeado -->
+        <item name="android:padding">10dp</item> <!-- Ajustar el relleno según sea necesario -->
+        <item name="android:elevation">4dp</item>
+        <item name="android:textColor">@color/white</item><!-- Establecer la elevación para la sombra -->
+    </style>
+
 </resources>
