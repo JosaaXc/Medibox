@@ -5,20 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
+    android:paddingLeft="16sp"
+    android:paddingTop="16sp"
+    android:paddingRight="16sp"
+    android:paddingBottom="16sp"
     tools:context=".verDatos">
-
-    <Button
-        android:id="@+id/btnEnviarDatos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5sp"
-        android:onClick="enviarDatos"
-        android:text="Enviar Datos" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,8 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:layout_marginTop="69sp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="5sp"
             android:text="Año"
             app:layout_constraintBottom_toBottomOf="@+id/btnSeleccionarMes"
             app:layout_constraintEnd_toStartOf="@+id/btnSeleccionarMes"
@@ -44,9 +35,9 @@
             android:id="@+id/btnSeleccionarSemana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="69sp"
+            android:layout_marginTop="20sp"
             android:layout_marginEnd="20sp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="5sp"
             android:text="Semana"
             app:layout_constraintBottom_toBottomOf="@+id/btnSeleccionarMes"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="69sp"
+            android:layout_marginTop="20sp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="5dp"
             android:text="Mes"
@@ -70,33 +61,47 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/mostraFecha"
+
+        <Button
+            android:id="@+id/btnEnviarDatos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintTop_toBottomOf="@+id/btnSeleccionarAnio"
-            tools:layout_editor_absoluteX="34sp"
-            tools:ignore="MissingConstraints"
+            android:layout_marginBottom="48dp"
+            android:text="Enviar Datos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/mostraFecha"
             style="@style/ShadowTextViewStyle"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4sp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/btnEnviarDatos"
-        android:layout_marginTop="100sp"
+        android:layout_width="379dp"
+        android:layout_height="608dp"
+        android:layout_marginTop="80sp"
         android:contentDescription="@string/app_name">
 
         <LinearLayout
             android:id="@+id/registrosLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10sp">
+            android:layout_margin="10sp"
+            android:orientation="vertical">
 
             <!-- Aquí se agregarán dinámicamente los elementos de registro -->
 
