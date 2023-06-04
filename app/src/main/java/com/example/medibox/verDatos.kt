@@ -1,18 +1,27 @@
 package com.example.medibox
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.FileProvider
 import com.example.medibox.databinding.ActivityVerDatosBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.itextpdf.text.*
+import com.itextpdf.text.pdf.PdfPCell
+import com.itextpdf.text.pdf.PdfPTable
+import com.itextpdf.text.pdf.PdfWriter
+import java.io.File
+import java.io.FileOutputStream
 import java.util.*
 
 class verDatos : AppCompatActivity() {
@@ -435,26 +444,103 @@ class verDatos : AppCompatActivity() {
         })
     }
 
-
     private fun generarPDF() {
-        // Verificar la lista de registros
-        if (listaRegistros.isNotEmpty()) {
-            // La lista de registros no está vacía, se han almacenado registros correctamente
-            // Puedes imprimir el contenido de la lista o mostrar un mensaje
-            for (registro in listaRegistros) {
-                val signo = registro.signo
-                val fecha = registro.fecha
-                val valor = registro.valor
-                val dia = registro.dia
-                val hora = registro.hora
-                Log.d(
-                    "Registros",
-                    "Signo: $signo, Fecha: $fecha, Valor: $valor, Día: $dia, Hora: $hora"
-                )
+        var apPaterno = ""
+        var apMaterno = ""
+        var nombreP = ""
+        var nombreC=""
+        var datosObtenidos = false
+        val user = FirebaseAuth.getInstance().currentUser
+        val email = user?.email
+        val curp = email?.replace("@gmail.com", "")
+        //traemos el nombre
+        val uid = user?.uid.toString()
+        val databaseUid = FirebaseDatabase.getInstance().getReference("/Persona/$uid")
+        databaseUid.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                apPaterno = snapshot.child("ApellidoPaterno").value.toString()
+                apMaterno = snapshot.child("ApellidoMaterno").value.toString()
+                nombreP = snapshot.child("Nombre").value.toString()
+
+                nombreC = "$nombreP $apPaterno $apMaterno"
+                datosObtenidos = true // Indicar que los datos se han obtenido correctamente
+
+                // Aquí puedes llamar al método para generar el PDF una vez que los datos estén disponibles
+                generarPDFConDatos(nombreC, curp)
             }
-        } else {
-            // La lista de registros está vacía, no se han almacenado registros
-            Toast.makeText(this, "Selecciona registros disponibles", Toast.LENGTH_SHORT).show()
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("TAG", error.message) // Manejar el error adecuadamente
+            }
+        })
+        // Mostrar Toast y generar PDF si los datos se han obtenido correctamente
+        if (datosObtenidos) {
+
+            generarPDFConDatos(nombreC, curp)
         }
+
+    }
+    private fun generarPDFConDatos(nombreC: String, curp: String?) {
+        // Resto del código para generar el PDF
+        if (listaRegistros.isNotEmpty()) {
+            // Crear documento PDF
+            val document = Document()
+            val fileName = "archivoMediBox.pdf"
+            val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            val file = File(downloadsDir, fileName)
+            val fileOutputStream = FileOutputStream(file)
+            PdfWriter.getInstance(document, fileOutputStream)
+
+            // Abrir el documento PDF
+            document.open()
+
+            // Crear un párrafo para el título
+            val titleFont = Font(Font.FontFamily.HELVETICA, 18f, Font.BOLD)
+            val titleParagraph = Paragraph("Registros de: $nombreC CURP:$curp " , titleFont)
+
+            titleParagraph.alignment = Element.ALIGN_CENTER
+            document.add(titleParagraph)
+
+            // Crear una tabla para los registros
+            val table = PdfPTable(5) // 5 columnas para cada dato del registro
+            table.widthPercentage = 100f
+            table.spacingBefore = 20f
+            table.spacingAfter = 20f
+
+            // Agregar encabezados de columna
+            table.addCell(createCell("Signo", true))
+            table.addCell(createCell("Fecha", true))
+            table.addCell(createCell("Valor", true))
+            table.addCell(createCell("Día", true))
+            table.addCell(createCell("Hora", true))
+
+            // Agregar registros a la tabla
+            for (registro in listaRegistros) {
+                table.addCell(createCell(registro.signo))
+                table.addCell(createCell(registro.fecha))
+                table.addCell(createCell(registro.valor))
+                table.addCell(createCell(registro.dia))
+                table.addCell(createCell(registro.hora))
+            }
+
+            // Agregar la tabla al documento
+            document.add(table)
+
+            // Cerrar el documento PDF
+            document.close()
+
+            // Mostrar mensaje de éxito
+            Toast.makeText(this, "PDF generado correctamente", Toast.LENGTH_SHORT).show()
+        } else {
+            // La lista de registros está vacía, no se pueden generar PDF
+            Toast.makeText(this, "No hay registros disponibles", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun createCell(content: String, isHeader: Boolean = false): PdfPCell {
+        val font = if (isHeader) Font(Font.FontFamily.HELVETICA, 12f, Font.BOLD) else Font(Font.FontFamily.HELVETICA, 12f)
+        val cell = PdfPCell(Paragraph(content, font))
+        cell.paddingLeft = 5f
+        return cell
     }
 }
