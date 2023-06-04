@@ -3,6 +3,7 @@ package com.example.medibox
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -23,6 +24,14 @@ class verDatos : AppCompatActivity() {
         "Temperatura" to "icon_temperatura",
         // Agrega más elementos aquí si es necesario
     )
+    private val listaRegistros: MutableList<Registro> = mutableListOf()
+    data class Registro(
+        val signo: String,
+        val fecha: String,
+        val valor: String,
+        val dia: String,
+        val hora: String
+    )
 
     private lateinit var binding: ActivityVerDatosBinding
 
@@ -33,6 +42,10 @@ class verDatos : AppCompatActivity() {
         setContentView(view)
 
         obtenerRegistros()
+        val enviarPDF = findViewById<Button>(R.id.btnEnviarDatos)
+        enviarPDF.setOnClickListener{
+            generarPDF()
+        }
         val btnSeleccionarAnio = findViewById<Button>(R.id.btnSeleccionarAnio)
         val btnSeleccionarMes = findViewById<Button>(R.id.btnSeleccionarMes)
         val btnSeleccionarSemana = findViewById<Button>(R.id.btnSeleccionarSemana)
@@ -154,6 +167,7 @@ class verDatos : AppCompatActivity() {
 
         val signosReference = FirebaseDatabase.getInstance().reference.child("Signos").child(uid)
         registrosLayout.removeAllViews() // Limpiar las vistas anteriores
+        listaRegistros.clear()
 
         // Obtener los registros y aplicar el filtro por semana
         signosReference.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -177,6 +191,12 @@ class verDatos : AppCompatActivity() {
 
                         // Aplicar el filtro
                         if (anioActual == anio && mesActual == mes && numeroSemana == semana) {
+
+                            val valorNonNull = valor ?: ""
+                            val diaNonNull = dia ?: ""
+                            val horaNonNull = hora ?: ""
+                            val registro = Registro(signo, fecha, valorNonNull, diaNonNull, horaNonNull)
+                            listaRegistros.add(registro)
                             // Crear una vista para mostrar el registro
                             val registroView = layoutInflater.inflate(R.layout.item_registro, null)
                             val fechaTextView = registroView.findViewById<TextView>(R.id.tvFecha)
@@ -226,6 +246,7 @@ class verDatos : AppCompatActivity() {
 
         val signosReference = FirebaseDatabase.getInstance().reference.child("Signos").child(uid)
         registrosLayout.removeAllViews() // Limpiar las vistas anteriores
+        listaRegistros.clear()
 
         // Obtener los registros y aplicar el filtro por año
         signosReference.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -246,6 +267,12 @@ class verDatos : AppCompatActivity() {
 
                         // Aplicar el filtro
                         if (añoActual == anio) {
+
+                            val valorNonNull = valor ?: ""
+                            val diaNonNull = dia ?: ""
+                            val horaNonNull = hora ?: ""
+                            val registro = Registro(signo, fecha, valorNonNull, diaNonNull, horaNonNull)
+                            listaRegistros.add(registro)
                             // Crear una vista para mostrar el registro
                             val registroView = layoutInflater.inflate(R.layout.item_registro, null)
                             val fechaTextView = registroView.findViewById<TextView>(R.id.tvFecha)
@@ -288,6 +315,7 @@ class verDatos : AppCompatActivity() {
         val signosReference = FirebaseDatabase.getInstance().reference.child("Signos").child(uid)
         registrosLayout.removeAllViews() // Limpiar las vistas anteriores
 
+        listaRegistros.clear()
         // Obtener los registros y aplicar el filtro por mes
         signosReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -308,6 +336,11 @@ class verDatos : AppCompatActivity() {
 
                         // Aplicar el filtro
                         if (anio == anioActual && mesActual == mes) {
+                            val valorNonNull = valor ?: ""
+                            val diaNonNull = dia ?: ""
+                            val horaNonNull = hora ?: ""
+                            val registro = Registro(signo, fecha, valorNonNull, diaNonNull, horaNonNull)
+                            listaRegistros.add(registro)
                             // Crear una vista para mostrar el registro
                             val registroView = layoutInflater.inflate(R.layout.item_registro, null)
                             val fechaTextView = registroView.findViewById<TextView>(R.id.tvFecha)
@@ -366,6 +399,12 @@ class verDatos : AppCompatActivity() {
                         val dia = fechaSnapshot.child("dia").getValue(String::class.java)
                         val hora = fechaSnapshot.child("hora").getValue(String::class.java)
 
+                        val valorNonNull = valor ?: ""
+                        val diaNonNull = dia ?: ""
+                        val horaNonNull = hora ?: ""
+                        val registro = Registro(signo, fecha, valorNonNull, diaNonNull, horaNonNull)
+                        listaRegistros.add(registro)
+
                         // Crear una vista para mostrar el registro
                         val registroView = layoutInflater.inflate(R.layout.item_registro, null)
                         val fechaTextView = registroView.findViewById<TextView>(R.id.tvFecha)
@@ -394,5 +433,28 @@ class verDatos : AppCompatActivity() {
                 // Manejo de errores, si es necesario
             }
         })
+    }
+
+
+    private fun generarPDF() {
+        // Verificar la lista de registros
+        if (listaRegistros.isNotEmpty()) {
+            // La lista de registros no está vacía, se han almacenado registros correctamente
+            // Puedes imprimir el contenido de la lista o mostrar un mensaje
+            for (registro in listaRegistros) {
+                val signo = registro.signo
+                val fecha = registro.fecha
+                val valor = registro.valor
+                val dia = registro.dia
+                val hora = registro.hora
+                Log.d(
+                    "Registros",
+                    "Signo: $signo, Fecha: $fecha, Valor: $valor, Día: $dia, Hora: $hora"
+                )
+            }
+        } else {
+            // La lista de registros está vacía, no se han almacenado registros
+            Toast.makeText(this, "Selecciona registros disponibles", Toast.LENGTH_SHORT).show()
+        }
     }
 }
