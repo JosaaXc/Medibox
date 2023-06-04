@@ -1,14 +1,12 @@
 package com.example.medibox
 
 import android.content.Intent
-import com.example.medibox.databinding.ActivityVerDatosBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.NumberPicker
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import com.example.medibox.databinding.ActivityVerDatosBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,6 +15,15 @@ import com.google.firebase.database.ValueEventListener
 import java.util.*
 
 class verDatos : AppCompatActivity() {
+    val registros: HashMap<String, String> = hashMapOf(
+        "Glucosa" to "icon_glucosa",
+        "IMC" to "icon_imc",
+        "Oxigenación" to "icon_oxigenacion",
+        "Ritmo Cardiaco" to "ritmo_cardiaco",
+        "Temperatura" to "icon_temperatura",
+        // Agrega más elementos aquí si es necesario
+    )
+
     private lateinit var binding: ActivityVerDatosBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -153,6 +160,7 @@ class verDatos : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (signoSnapshot in dataSnapshot.children) {
                     val signo = signoSnapshot.key.toString()
+                    val signoImagen = registros[signo]
 
                     for (fechaSnapshot in signoSnapshot.children) {
                         val fecha = fechaSnapshot.key.toString()
@@ -176,6 +184,11 @@ class verDatos : AppCompatActivity() {
                             val valorTextView = registroView.findViewById<TextView>(R.id.tvValor)
                             val horaTextView = registroView.findViewById<TextView>(R.id.tvHora)
                             val signoTextView = registroView.findViewById<TextView>(R.id.tvSigno)
+                            if (signoImagen != null) {
+                                val resourceId = resources.getIdentifier(signoImagen, "drawable", packageName)
+                                val imageView = registroView.findViewById<ImageView>(R.id.ivIcon)
+                                imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                            }
 
                             signoTextView.text = signo
                             diaTextView.text = dia
@@ -219,6 +232,7 @@ class verDatos : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (signoSnapshot in dataSnapshot.children) {
                     val signo = signoSnapshot.key.toString()
+                    val signoImagen = registros[signo]
 
                     for (fechaSnapshot in signoSnapshot.children) {
                         val fecha = fechaSnapshot.key.toString()
@@ -239,6 +253,11 @@ class verDatos : AppCompatActivity() {
                             val valorTextView = registroView.findViewById<TextView>(R.id.tvValor)
                             val horaTextView = registroView.findViewById<TextView>(R.id.tvHora)
                             val signoTextView = registroView.findViewById<TextView>(R.id.tvSigno)
+                            if (signoImagen != null) {
+                                val resourceId = resources.getIdentifier(signoImagen, "drawable", packageName)
+                                val imageView = registroView.findViewById<ImageView>(R.id.ivIcon)
+                                imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                            }
 
                             signoTextView.text = signo
                             diaTextView.text = dia
@@ -274,6 +293,7 @@ class verDatos : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (signoSnapshot in dataSnapshot.children) {
                     val signo = signoSnapshot.key.toString()
+                    val signoImagen = registros[signo]
 
                     for (fechaSnapshot in signoSnapshot.children) {
                         val fecha = fechaSnapshot.key.toString()
@@ -295,6 +315,11 @@ class verDatos : AppCompatActivity() {
                             val valorTextView = registroView.findViewById<TextView>(R.id.tvValor)
                             val horaTextView = registroView.findViewById<TextView>(R.id.tvHora)
                             val signoTextView = registroView.findViewById<TextView>(R.id.tvSigno)
+                            if (signoImagen != null) {
+                                val resourceId = resources.getIdentifier(signoImagen, "drawable", packageName)
+                                val imageView = registroView.findViewById<ImageView>(R.id.ivIcon)
+                                imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                            }
 
                             signoTextView.text = signo
                             diaTextView.text = dia
@@ -334,7 +359,7 @@ class verDatos : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (signoSnapshot in dataSnapshot.children) {
                     val signo = signoSnapshot.key.toString()
-
+                    val signoImagen = registros[signo]
                     for (fechaSnapshot in signoSnapshot.children) {
                         val fecha = fechaSnapshot.key.toString()
                         val valor = fechaSnapshot.child("valor").getValue(String::class.java)
@@ -348,7 +373,11 @@ class verDatos : AppCompatActivity() {
                         val valorTextView = registroView.findViewById<TextView>(R.id.tvValor)
                         val horaTextView = registroView.findViewById<TextView>(R.id.tvHora)
                         val signoTextView = registroView.findViewById<TextView>(R.id.tvSigno)
-
+                        if (signoImagen != null) {
+                            val resourceId = resources.getIdentifier(signoImagen, "drawable", packageName)
+                            val imageView = registroView.findViewById<ImageView>(R.id.ivIcon)
+                            imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                        }
                         signoTextView.text = signo
                         diaTextView.text = dia
                         fechaTextView.text = fecha
