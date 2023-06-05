@@ -30,9 +30,7 @@ class signoGlucosa : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
     }
     fun btnCancelar (view: View){
-        val intent = Intent(this, bienvenida::class.java)
-        startActivity(intent)
-        finishAffinity()
+        finish()
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

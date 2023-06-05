@@ -535,8 +535,10 @@ class verDatos : AppCompatActivity() {
             // La lista de registros está vacía, no se pueden generar PDF
             Toast.makeText(this, "No hay registros disponibles", Toast.LENGTH_SHORT).show()
         }
+        //nos dirijimos a la siguiente interfaz:
+        val intent = Intent(this@verDatos, enviarDatos::class.java)
+        startActivity(intent)
     }
-
     private fun createCell(content: String, isHeader: Boolean = false): PdfPCell {
         val font = if (isHeader) Font(Font.FontFamily.HELVETICA, 12f, Font.BOLD) else Font(Font.FontFamily.HELVETICA, 12f)
         val cell = PdfPCell(Paragraph(content, font))
