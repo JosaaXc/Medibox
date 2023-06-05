@@ -36,6 +36,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    packagingOptions {
+        resources {
+            exclude 'META-INF/NOTICE.md'
+            exclude 'META-INF/LICENSE.md'
+        }
+    }
 }
 
 
@@ -55,4 +61,8 @@ dependencies {
 
     //iTextPDF
     implementation 'com.itextpdf:itextg:5.5.10'
+    //enviar correos librerias: JavaMailAPI
+    implementation 'com.sun.mail:android-mail:1.6.6'
+    implementation 'com.sun.mail:android-activation:1.6.6'
+
 }
