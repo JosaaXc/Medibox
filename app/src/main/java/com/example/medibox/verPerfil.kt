@@ -175,7 +175,7 @@ class verPerfil : AppCompatActivity() {
         }
     }
     fun registrarse(view: View) {
-        val intent = Intent(this, registrarUsuario::class.java)
+        val intent = Intent(this, iniciarSesion::class.java)
         startActivity(intent)
     }
     fun clicCancelar(view: View){

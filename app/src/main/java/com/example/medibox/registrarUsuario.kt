@@ -41,29 +41,37 @@ class registrarUsuario : AppCompatActivity() {
         val curp = findViewById<EditText>(R.id.curp)
         val contra = findViewById<EditText>(R.id.ap)
         val confirmarcontra = findViewById<EditText>(R.id.confirmarcontra)
+        val input = curp.text.toString().trim()
         registrarse.setOnClickListener{
             if(curp.text.isNotEmpty() && contra.text.isNotEmpty() && confirmarcontra.text.isNotEmpty()){
-                if(contra.text.toString()==confirmarcontra.text.toString() && contra.text.toString().length>=6) {
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                        curp.text.toString() + "@gmail.com",
-                        contra.text.toString()
-                    ).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            mandarDatosBD()
-                            val intent = Intent(this, bienvenida::class.java)
-                            startActivity(intent)
-                            finish()
-                            Toast.makeText(
-                                getApplicationContext(),
-                                "Registrado con éxito",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            showAlert()
+                if (input.length == 18 && input == input.toUpperCase()) {
+                    // El campo tiene 18 caracteres y todos son mayúsculas
+                    // Aquí puedes realizar las acciones que desees cuando el campo cumple las condiciones
+                    if(contra.text.toString()==confirmarcontra.text.toString() && contra.text.toString().length>=6) {
+                        FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                            curp.text.toString() + "@gmail.com",
+                            contra.text.toString()
+                        ).addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                mandarDatosBD()
+                                val intent = Intent(this, bienvenida::class.java)
+                                startActivity(intent)
+                                finish()
+                                Toast.makeText(
+                                    getApplicationContext(),
+                                    "Registrado con éxito",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                showAlert()
+                            }
                         }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "La contraseña debe ser igual y mayor a 6 digitos", Toast.LENGTH_SHORT).show()
                     }
-                }else{
-                    Toast.makeText(getApplicationContext(), "La contraseña debe ser igual y mayor a 6 digitos", Toast.LENGTH_SHORT).show()
+                } else {
+                    // El campo no cumple con las condiciones de 18 caracteres y en mayuscula
+                    Toast.makeText(this@registrarUsuario, "La curp debe tener exactamente 18 caracteres en Mayúscula", Toast.LENGTH_LONG).show()
                 }
             }else {
                 Toast.makeText(getApplicationContext(), "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show()
