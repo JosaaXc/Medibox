@@ -44,7 +44,8 @@ class enviarDatos : AppCompatActivity() {
                 // Obtén la ruta del archivo PDF generado
                 val fileName = "archivoMediBox.pdf"
                 val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-                val file = File(downloadsDir, fileName)
+                val mediboxDir = File(downloadsDir, "Medibox")
+                val file = File(mediboxDir, fileName)
 
                 // Verifica si el archivo PDF existe
                 if (file.exists()) {
@@ -105,10 +106,11 @@ class enviarDatos : AppCompatActivity() {
     fun verPDF(view: View){
         val fileName = "archivoMediBox.pdf"
         val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        val file = File(downloadsDir, fileName)
+        val mediboxDir = File(downloadsDir, "Medibox")
+        val file = File(mediboxDir, fileName)
 
         val intent = Intent(Intent.ACTION_VIEW)
-        val uri = FileProvider.getUriForFile(this@enviarDatos, "$packageName.provider", file)
+        val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
         intent.setDataAndType(uri, "application/pdf")
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 

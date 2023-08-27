@@ -1,6 +1,5 @@
 package com.example.medibox
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +8,6 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.FileProvider
 import com.example.medibox.databinding.ActivityVerDatosBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -23,6 +21,12 @@ import com.itextpdf.text.pdf.PdfWriter
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
+//librerias para los permisos de escritura en almacenamiento:
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import java.io.FileNotFoundException
 
 class verDatos : AppCompatActivity() {
     val registros: HashMap<String, String> = hashMapOf(
@@ -44,6 +48,13 @@ class verDatos : AppCompatActivity() {
 
     private lateinit var binding: ActivityVerDatosBinding
 
+    private val STORAGE_PERMISSION_CODE = 1 // Puedes elegir cualquier número como identificador de solicitud
+    private val STORAGE_PERMISSIONS = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.MANAGE_EXTERNAL_STORAGE
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerDatosBinding.inflate(layoutInflater)
@@ -51,10 +62,29 @@ class verDatos : AppCompatActivity() {
         setContentView(view)
 
         obtenerRegistros()
+
+        //clase para generar pdf:
         val enviarPDF = findViewById<Button>(R.id.btnEnviarDatos)
         enviarPDF.setOnClickListener{
             generarPDF()
         }
+        // Verificar si los permisos de almacenamiento están otorgados
+        val permissionsToRequest = mutableListOf<String>()
+        for (permission in STORAGE_PERMISSIONS) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                permissionsToRequest.add(permission)
+            }
+        }
+
+        if (permissionsToRequest.isNotEmpty()) {
+            // Si algún permiso no está otorgado, solicitarlos
+            ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), STORAGE_PERMISSION_CODE)
+        } else {
+            // Todos los permisos de almacenamiento otorgados
+            // Puedes realizar operaciones de lectura y escritura aquí
+            Toast.makeText(this, "Permisos aceptados", Toast.LENGTH_SHORT).show()
+        }
+
         val btnSeleccionarAnio = findViewById<Button>(R.id.btnSeleccionarAnio)
         val btnSeleccionarMes = findViewById<Button>(R.id.btnSeleccionarMes)
         val btnSeleccionarSemana = findViewById<Button>(R.id.btnSeleccionarSemana)
@@ -97,7 +127,6 @@ class verDatos : AppCompatActivity() {
                     alertDialogBuilder.create().show()
                 }
 
-
         btnSeleccionarMes.setOnClickListener {
             // Lista de meses disponibles
             val mesesDisponibles = arrayOf(
@@ -132,6 +161,7 @@ class verDatos : AppCompatActivity() {
             // Mostrar el cuadro de diálogo
             alertDialogBuilder.create().show()
         }
+
         btnSeleccionarSemana.setOnClickListener {
             // Lista de semanas disponibles con sus rangos de días
             val semanasDisponibles = arrayOf(
@@ -169,6 +199,32 @@ class verDatos : AppCompatActivity() {
             alertDialogBuilder.create().show()
         }
     }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            var allPermissionsGranted = true
+            for (result in grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allPermissionsGranted = false
+                    break
+                }
+            }
+
+            if (allPermissionsGranted) {
+                // Todos los permisos otorgados
+                // Puedes realizar operaciones de lectura y escritura aquí
+                Toast.makeText(this, "permisos ya aceptados", Toast.LENGTH_SHORT).show()
+            } else {
+                // Alguno de los permisos fue denegado
+                // Manejar esta situación si es necesario
+            }
+        }
+    }
+
     private fun filtrarRegistrosPorSemana(anio: Int, mes: Int, semana: Int) {
         val registrosLayout = binding.registrosLayout
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -246,7 +302,6 @@ class verDatos : AppCompatActivity() {
         else
             return (dia - 1) / 7 + 1
     }
-
 
     private fun filtrarRegistrosPorAnio(anio: Int) {
         val registrosLayout = binding.registrosLayout
@@ -384,12 +439,6 @@ class verDatos : AppCompatActivity() {
         })
     }
 
-
-    fun enviarDatos(view: View) {
-        val intent = Intent(this, enviarDatos::class.java)
-        startActivity(intent)
-    }
-
     private fun obtenerRegistros() {
         val registrosLayout = binding.registrosLayout
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -478,59 +527,74 @@ class verDatos : AppCompatActivity() {
 
             generarPDFConDatos(nombreC, curp)
         }
-
     }
     private fun generarPDFConDatos(nombreC: String, curp: String?) {
         // Resto del código para generar el PDF
         if (listaRegistros.isNotEmpty()) {
             // Crear documento PDF
             val document = Document()
+
             val fileName = "archivoMediBox.pdf"
             val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-            val file = File(downloadsDir, fileName)
-            val fileOutputStream = FileOutputStream(file)
-            PdfWriter.getInstance(document, fileOutputStream)
+            val mediboxDir = File(downloadsDir, "Medibox")
 
-            // Abrir el documento PDF
-            document.open()
-
-            // Crear un párrafo para el título
-            val titleFont = Font(Font.FontFamily.HELVETICA, 18f, Font.BOLD)
-            val titleParagraph = Paragraph("Registros de: $nombreC CURP:$curp " , titleFont)
-
-            titleParagraph.alignment = Element.ALIGN_CENTER
-            document.add(titleParagraph)
-
-            // Crear una tabla para los registros
-            val table = PdfPTable(5) // 5 columnas para cada dato del registro
-            table.widthPercentage = 100f
-            table.spacingBefore = 20f
-            table.spacingAfter = 20f
-
-            // Agregar encabezados de columna
-            table.addCell(createCell("Signo", true))
-            table.addCell(createCell("Fecha", true))
-            table.addCell(createCell("Valor", true))
-            table.addCell(createCell("Día", true))
-            table.addCell(createCell("Hora", true))
-
-            // Agregar registros a la tabla
-            for (registro in listaRegistros) {
-                table.addCell(createCell(registro.signo))
-                table.addCell(createCell(registro.fecha))
-                table.addCell(createCell(registro.valor))
-                table.addCell(createCell(registro.dia))
-                table.addCell(createCell(registro.hora))
+            if (!mediboxDir.exists()) {
+                mediboxDir.mkdirs()
             }
 
-            // Agregar la tabla al documento
-            document.add(table)
+            val file = File(mediboxDir, fileName)
 
-            // Cerrar el documento PDF
-            document.close()
+            try {
+                val fileOutputStream = FileOutputStream(file)
+                PdfWriter.getInstance(document, fileOutputStream)
 
-            // Mostrar mensaje de éxito
-            Toast.makeText(this, "PDF generado correctamente", Toast.LENGTH_SHORT).show()
+                // Abrir el documento PDF
+                document.open()
+
+                // Resto de tu código para agregar contenido al PDF
+
+                // Crear un párrafo para el título
+                val titleFont = Font(Font.FontFamily.HELVETICA, 18f, Font.BOLD)
+                val titleParagraph = Paragraph("Registros de: $nombreC CURP:$curp " , titleFont)
+
+                titleParagraph.alignment = Element.ALIGN_CENTER
+                document.add(titleParagraph)
+
+                // Crear una tabla para los registros
+                val table = PdfPTable(5) // 5 columnas para cada dato del registro
+                table.widthPercentage = 100f
+                table.spacingBefore = 20f
+                table.spacingAfter = 20f
+
+                // Agregar encabezados de columna
+                table.addCell(createCell("Signo", true))
+                table.addCell(createCell("Fecha", true))
+                table.addCell(createCell("Valor", true))
+                table.addCell(createCell("Día", true))
+                table.addCell(createCell("Hora", true))
+
+                // Agregar registros a la tabla
+                for (registro in listaRegistros) {
+                    table.addCell(createCell(registro.signo))
+                    table.addCell(createCell(registro.fecha))
+                    table.addCell(createCell(registro.valor))
+                    table.addCell(createCell(registro.dia))
+                    table.addCell(createCell(registro.hora))
+                }
+
+                // Agregar la tabla al documento
+                document.add(table)
+                // Cerrar el documento PDF
+                document.close()
+
+                // Mostrar mensaje de éxito
+                Toast.makeText(this, "PDF generado correctamente", Toast.LENGTH_SHORT).show()
+
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+                // Manejar el error en caso de que ocurra una excepción al abrir el archivo
+                Toast.makeText(this, "Error al generar el PDF", Toast.LENGTH_SHORT).show()
+            }
         } else {
             // La lista de registros está vacía, no se pueden generar PDF
             Toast.makeText(this, "No hay registros disponibles", Toast.LENGTH_SHORT).show()
