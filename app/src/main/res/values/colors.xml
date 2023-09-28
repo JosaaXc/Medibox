@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="azulprincipal">#0B52E3</color>
+    <color name="azulSecundario">#5687e9</color>
     <color name="casigris">#EEEEEE</color>
     <color name="gris">#F6F7FB</color>
     <color name="grisdeletras">#B1B1B1</color>
+    <color name="red">#a70707</color>
 </resources>
