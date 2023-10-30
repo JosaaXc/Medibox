@@ -46,6 +46,7 @@ class verDatos : AppCompatActivity() {
         val hora: String
     )
 
+
     private lateinit var binding: ActivityVerDatosBinding
 
     private val STORAGE_PERMISSION_CODE = 1 // Puedes elegir cualquier número como identificador de solicitud

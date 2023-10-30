@@ -51,6 +51,6 @@ class iniciarSesion : AppCompatActivity() {
         startActivity(intent)
     }
     fun registrarse(view: View) {
-        abrirActividad(registrarUsuario::class.java)
+        abrirActividad(agregarPerfil::class.java)
     }
 }

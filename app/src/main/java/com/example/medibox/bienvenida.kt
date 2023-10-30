@@ -31,21 +31,10 @@ class bienvenida : AppCompatActivity() {
 
         if (FirebaseAuth.getInstance().currentUser != null) {
             siEstaLogeado()
-            setUp()
         } else {
-            recibirNombre()
             val intent = Intent(this, iniciarSesion::class.java)
             startActivity(intent)
             finish()
-        }
-
-        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
-        val resourceId = sharedPreferences.getInt("claveObjetoSeleccionado", 0) // Obtener el identificador de recurso guardado
-        val imageView = findViewById<ImageView>(R.id.imageView6)
-        makeImageViewCircular(imageView)
-        if (resourceId != 0) {
-
-            imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
         }
     }
     fun makeImageViewCircular(imageView: ImageView) {
@@ -64,12 +53,17 @@ class bienvenida : AppCompatActivity() {
 
                 val NomAp = findViewById<TextView>(R.id.NomAp)
                 NomAp.text = nombreMostrar + " " + apellidoMostrar
+                val imageView = findViewById<ImageView>(R.id.imageView6)
                 val avatar = snapshot.child("Imagen").getValue(Int::class.java)
                 if (avatar != null) {
                     val avatarMostrar = diccionario[avatar]
                     val resourceId = resources.getIdentifier(avatarMostrar, "drawable", packageName)
+                    imageView.setImageResource(resourceId)
+                    makeImageViewCircular(imageView)
+                }else{
+                    val defaultResourceId = resources.getIdentifier("loginperfil", "drawable", packageName)
                     val imageView = findViewById<ImageView>(R.id.imageView6)
-                    imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
+                    imageView.setImageResource(defaultResourceId)
                 }
 
             }
@@ -78,48 +72,36 @@ class bienvenida : AppCompatActivity() {
             }
         })
     }
-    fun recibirNombre(){
-        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
-        val nombreAg = sharedPreferences.getString("nombre","")
-        val apellidoAg = sharedPreferences.getString("apellidoP", "")
-        val NomAp = findViewById<TextView>(R.id.NomAp)
-        NomAp.text = nombreAg + " " + apellidoAg
+    fun abrirActividad(clase: Class<*>) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 
-
-    fun setUp() {
-
+    fun verPerfil(view: View) {
+        abrirActividad(verPerfil::class.java)
     }
-        fun abrirActividad(clase: Class<*>) {
-            val intent = Intent(this, clase)
-            startActivity(intent)
-        }
 
-        fun verPerfil(view: View) {
-            abrirActividad(verPerfil::class.java)
-        }
+    fun vistaRitmoc(view: View) {
+        abrirActividad(signoRitmoc::class.java)
+    }
 
-        fun vistaRitmoc(view: View) {
-            abrirActividad(signoRitmoc::class.java)
-        }
+    fun vistaGlucosa(view: View) {
+        abrirActividad(signoGlucosa::class.java)
+    }
 
-        fun vistaGlucosa(view: View) {
-            abrirActividad(signoGlucosa::class.java)
-        }
+    fun oxigenacion(view: View) {
+        abrirActividad(signoOxigenacion::class.java)
+    }
 
-        fun oxigenacion(view: View) {
-            abrirActividad(signoOxigenacion::class.java)
-        }
+    fun temperatura(view: View) {
+        abrirActividad(signoTemperatura::class.java)
+    }
 
-        fun temperatura(view: View) {
-            abrirActividad(signoTemperatura::class.java)
-        }
+    fun imc(view: View) {
+        abrirActividad(signoImc::class.java)
+    }
 
-        fun imc(view: View) {
-            abrirActividad(signoImc::class.java)
-        }
-
-        fun vistaVerMisdatos(view: View) {
-            abrirActividad(verDatos::class.java)
-        }
+    fun vistaVerMisdatos(view: View) {
+        abrirActividad(verDatos::class.java)
+    }
 }

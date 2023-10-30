@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -33,26 +34,47 @@ class agregarPerfil : AppCompatActivity() {
             startActivity(intent)
 
         }
-
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-
 
         val aceptar = findViewById<TextView>(R.id.button)
+
         aceptar.setOnClickListener {
+            val nombreEditText = findViewById<EditText>(R.id.nombre)
+            val apellidoPaternoEditText = findViewById<EditText>(R.id.ap)
+            val apellidoMaternoEditText = findViewById<EditText>(R.id.apellidom)
+            val fechaEditText = findViewById<EditText>(R.id.editTextDate)
 
-            editor.putString("nombre", findViewById<EditText>(R.id.nombre).text.toString())
-            editor.apply()
-            editor.putString("apellidoP", findViewById<EditText>(R.id.ap).text.toString())
-            editor.apply()
-            editor.putString("apellidoM", findViewById<EditText>(R.id.apellidom).text.toString())
-            editor.apply()
-            editor.putString("fecha", findViewById<EditText>(R.id.editTextDate).text.toString())
-            editor.apply()
+            val nombre = nombreEditText.text.toString().trim()
+            val apellidoPaterno = apellidoPaternoEditText.text.toString().trim()
+            val apellidoMaterno = apellidoMaternoEditText.text.toString().trim()
+            val fecha = fechaEditText.text.toString().trim()
 
-            val intent = Intent(this, bienvenida::class.java)
-            startActivity(intent)
+            if (nombre.isEmpty() || apellidoPaterno.isEmpty() || apellidoMaterno.isEmpty() || fecha.isEmpty()) {
+                Toast.makeText(applicationContext, "Todos los campos son obligatorios.", Toast.LENGTH_SHORT).show()
+            } else if (nombre.length > 30 || apellidoPaterno.length > 30 || apellidoMaterno.length > 30) {
+                Toast.makeText(applicationContext, "Nombre, Apellido Paterno o Materno no pueden exceder 30 caracteres.", Toast.LENGTH_SHORT).show()
+            } else {
+                val editor = sharedPreferences.edit()
+
+                // Guardar datos en preferencias compartidas
+                editor.putString("nombre", nombre)
+                editor.putString("apellidoP", apellidoPaterno)
+                editor.putString("apellidoM", apellidoMaterno)
+                editor.putString("fecha", fecha)
+                editor.apply()
+
+                //depuración
+                
+                Log.d("AgregarPerfil", "Nombre: $nombre")
+                Log.d("AgregarPerfil", "Apellido Paterno: $apellidoPaterno")
+                Log.d("AgregarPerfil", "Apellido Materno: $apellidoMaterno")
+                Log.d("AgregarPerfil", "Fecha: $fecha")
+
+                val intent = Intent(this, registrarUsuario::class.java)
+                startActivity(intent)
+            }
         }
+
         val imageView = findViewById<ImageView>(R.id.imageView2)
         makeImageViewCircular(imageView)
     }

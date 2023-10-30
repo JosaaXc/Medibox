@@ -1,5 +1,6 @@
 package com.example.medibox
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,10 +27,18 @@ class registrarUsuario : AppCompatActivity() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         val uid = currentUser?.uid.toString()
 
-        val nombre = verPerfil.UserValues.nombreU
-        val ap = verPerfil.UserValues.apU
-        val am = verPerfil.UserValues.amU
-        val fecha = verPerfil.UserValues.fechaU
+        //val nombre = verPerfil.UserValues.nombreU
+        //val ap = verPerfil.UserValues.apU
+        //val am = verPerfil.UserValues.amU
+        //val fecha = verPerfil.UserValues.fechaU
+
+        // Obtener datos de preferencias compartidas
+        val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
+        val nombre = sharedPreferences.getString("nombre", "") // Obtén el nombre guardado
+        val ap = sharedPreferences.getString("apellidoP", "") // Obtén el apellido paterno guardado
+        val am = sharedPreferences.getString("apellidoM", "") // Obtén el apellido materno guardado
+        val fecha = sharedPreferences.getString("fecha", "") // Obtén la fecha guardada
+
 
         databasereference.child("Persona").child(uid).child("Nombre").setValue(nombre)
         databasereference.child("Persona").child(uid).child("ApellidoPaterno").setValue(ap)
