@@ -80,7 +80,7 @@
             android:background="@drawable/rellenar_info"
             android:ems="10"
             android:fontFamily="@font/inter"
-            android:hint="Nombre"
+            android:hint="@string/nombre"
             android:inputType="textPersonName"
             android:paddingLeft="50sp"
             android:textColorHint="@color/grisdeletras" />
@@ -133,7 +133,7 @@
             android:background="@drawable/rellenar_info"
             android:ems="10"
             android:fontFamily="@font/inter"
-            android:hint="Apellido Paterno"
+            android:hint="@string/apellidoPaterno"
             android:inputType="textPersonName"
             android:paddingLeft="50sp"
             android:textColorHint="@color/grisdeletras" />
@@ -180,7 +180,7 @@
             android:background="@drawable/rellenar_info"
             android:ems="10"
             android:fontFamily="@font/inter"
-            android:hint="Apellido Materno"
+            android:hint="@string/apellidoMaterno"
             android:inputType="textPersonName"
             android:paddingLeft="50sp"
             android:textColorHint="@color/grisdeletras" />
@@ -224,7 +224,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/rellenar_info"
             android:fontFamily="@font/inter"
-            android:hint="Fecha"
+            android:hint="@string/fechanacimiento"
             android:focusable="false"
             android:inputType="none"
             android:paddingLeft="50sp"
@@ -238,50 +238,55 @@
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80sp"
-        android:layout_marginTop="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="60dp"
         android:background="@drawable/boton_redondo"
-        android:shadowRadius="3"
         android:onClick="bienvenida"
+        android:shadowRadius="3"
         android:text="Aceptar"
         android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnCancelar"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/btnCancelar"
         style="@style/botonCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80sp"
-        android:layout_marginTop="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/boton_radiocancelar"
         android:text="Cancelar"
         android:textAllCaps="false"
         android:textColor="@color/azulprincipal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:textStyle="italic"
         android:id="@+id/iniciarS"
         android:layout_width="199dp"
         android:layout_height="48sp"
         android:layout_marginTop="40sp"
         android:onClick="registrarse"
-        android:text="Iniciar sesion"
+        android:text="@string/iniciarSesion"
         android:textAlignment="center"
         android:textColor="@color/azulprincipal"
         android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCancelar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCancelar"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

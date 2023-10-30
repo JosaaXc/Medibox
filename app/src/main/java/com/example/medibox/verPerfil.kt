@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -55,11 +56,14 @@ class verPerfil : AppCompatActivity() {
         makeImageViewCircular(imageView)
         datePicker()
 
-        if(FirebaseAuth.getInstance().currentUser!=null)
+        if(FirebaseAuth.getInstance().currentUser!=null){
             siEstaLogeado()
-        else
+        }
+        else{
             pasarLosDatos()
-
+            val btnCerrar = findViewById<Button>(R.id.btnCerrarSesion)
+            btnCerrar.visibility = View.GONE
+        }
 
         val ocultar = findViewById<TextView>(R.id.iniciarS)
         if (FirebaseAuth.getInstance().currentUser != null)
@@ -175,7 +179,7 @@ class verPerfil : AppCompatActivity() {
         }
     }
     fun registrarse(view: View) {
-        val intent = Intent(this, registrarUsuario::class.java)
+        val intent = Intent(this, iniciarSesion::class.java)
         startActivity(intent)
     }
     fun clicCancelar(view: View){
@@ -281,6 +285,12 @@ class verPerfil : AppCompatActivity() {
         if (resourceId != 0) {
             imageView.setImageResource(resourceId) // Establecer el recurso de imagen en el ImageView
         }
+    }
+    fun cerrarSesion(view: View){
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this, iniciarSesion::class.java)
+        startActivity(intent)
+        finishAffinity()
     }
 
 }

@@ -29,19 +29,14 @@ class bienvenida : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
 
-        if(FirebaseAuth.getInstance().currentUser!=null)
-            siEstaLogeado()
-        else
-            recibirNombre()
-
-        val ocultar = findViewById<TextView>(R.id.cerrarsesion)
-        ocultar.visibility = View.GONE
-
         if (FirebaseAuth.getInstance().currentUser != null) {
-            ocultar.visibility = View.VISIBLE
+            siEstaLogeado()
             setUp()
         } else {
-            ocultar.visibility = View.GONE
+            recibirNombre()
+            val intent = Intent(this, iniciarSesion::class.java)
+            startActivity(intent)
+            finish()
         }
 
         val sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE)
@@ -93,13 +88,7 @@ class bienvenida : AppCompatActivity() {
 
 
     fun setUp() {
-        val cerrarsesion = findViewById<TextView>(R.id.cerrarsesion)
-        cerrarsesion.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, bienvenida::class.java)
-            startActivity(intent)
-            finish()
-        }
+
     }
         fun abrirActividad(clase: Class<*>) {
             val intent = Intent(this, clase)

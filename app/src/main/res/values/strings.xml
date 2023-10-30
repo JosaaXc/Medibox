@@ -10,6 +10,7 @@
     <string name="oxigenacion">Oxigenación</string>
     <string name="temperatura">Temperatura</string>
     <string name="imc">IMC</string>
+    <string name="cerrarS">Cerrar Sesión</string>
     <!-- Rango de ritmo cardiaco -->
     <string-array name="rg_ritmoc">
         <item>60ppm o menos</item>
@@ -38,4 +39,10 @@
         <item>36ªC - 38ºC</item>
         <item>Más de 39ºC</item>
     </string-array>
+    <!-- Textos Hint -->
+    <string name="nombre">Nombre</string>
+    <string name="apellidoMaterno">Apellido Materno</string>
+    <string name="apellidoPaterno">Apellido Paterno</string>
+    <string name="fechanacimiento">Fecha de Nacimiento</string>
+    <string name="iniciarSesion">¿Ya tienes cuenta? Inicia Sesión</string>
 </resources>

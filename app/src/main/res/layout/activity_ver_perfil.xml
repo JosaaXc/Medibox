@@ -13,6 +13,7 @@
 
         <ImageView
             android:id="@+id/imageView2"
+            android:contentDescription="@string/app_name"
             android:layout_width="143sp"
             android:layout_height="148sp"
             android:layout_marginTop="220sp"
@@ -233,6 +234,21 @@
 
         </androidx.cardview.widget.CardView>
 
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/red"
+            android:text="@string/cerrarS"
+            android:textSize="15dp"
+            android:onClick="cerrarSesion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
         <TextView
             android:id="@+id/btnCancelar"
             style="@style/botonCancelar"
@@ -241,6 +257,7 @@
             android:layout_marginStart="80sp"
             android:layout_marginTop="15sp"
             android:background="@drawable/boton_radiocancelar"
+            android:onClick="clicCancelar"
             android:text="Cancelar"
             android:textAllCaps="false"
             android:textColor="@color/azulprincipal"
@@ -248,9 +265,8 @@
             app:layout_constraintEnd_toStartOf="@+id/actualizar"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2"
-            app:layout_constraintVertical_bias="0.274"
-            android:onClick="clicCancelar"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnCerrarSesion"
+            app:layout_constraintVertical_bias="0.00999999" />
 
         <TextView
             android:id="@+id/actualizar"
@@ -267,19 +283,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnCancelar"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2"
-            app:layout_constraintVertical_bias="0.274" />
+            app:layout_constraintTop_toBottomOf="@+id/btnCerrarSesion"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:textStyle="italic"
             android:id="@+id/iniciarS"
             android:layout_width="199dp"
             android:layout_height="48sp"
             android:layout_marginTop="40sp"
+            android:layout_marginBottom="40dp"
             android:onClick="registrarse"
             android:text="Guarda tus datos en la nube"
             android:textAlignment="center"
             android:textColor="@color/azulprincipal"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnCancelar" />

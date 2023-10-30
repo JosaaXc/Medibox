@@ -27,12 +27,10 @@ public class cargando extends AppCompatActivity {
                 }else{
                     SharedPreferences sharedPreferences = getSharedPreferences("DatosPersona", Context.MODE_PRIVATE);
                     if(sharedPreferences.getString("nombre", "").equals("")){
-                        Toast.makeText(cargando.this, "Te damos la bienvenida a MediBox", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(cargando.this, agregarPerfil.class));
                         finish();
                     }else{
                         String nombrePersona = sharedPreferences.getString("nombre", "");
-                        Toast.makeText(cargando.this, "Te damos la bienvenida " +  nombrePersona, Toast.LENGTH_LONG).show();
                         startActivity(new Intent(cargando.this, bienvenida.class));
                         finish();
                     }
